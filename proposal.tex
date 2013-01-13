@@ -1,0 +1,96 @@
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+
+% define custom title layout (slightly temperamental)
+\title{%
+{\color{color2} \hrule}\vspace{1cm}
+\Huge{\color{color1} Project Proposal\\ % Specifications\\
+{\emph{for}}\\
+The Fantastic Team Project!\vspace{1cm}
+}
+{\color{color2} \hrule}\vspace{1cm}
+\Large{ \color{color2} Report 1\\
+Software Engineering\\
+14:332:452}
+}
+
+% define custom author layout (highly temperamental)
+\author{\huge{\color{color1}Team X:\\}\vskip.1in \Large{Jeff Adler \\Eric Cuiffo\\Nick Palumbo\\Jeff Rabinowitz\\Val Red\\Dario Rethage}}
+\date{\Large{\today}}
+
+
+
+\usepackage{hyperref}
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+
+
+\pagebreak  % flush the next page
+\tableofcontents % create TOC
+%\chapter*{Revision History}
+%\chapter{Introduction}
+%\section{Purpose}
+%\section{Project Scope and Product Features}
+%\section{References}
+%\chapter{Overall Description}
+%\section{Product Perspective}
+%\section{User Classes and Characteristics}
+\chapter{Team Profile}
+Team X would like to propose "The Greatest Project Ever"! This will
+be a variant of Project N described on
+\href{http://www.ece.rutgers.edu/~marsic/books/SE/projects/}{the course website}.
+Further details are described in Chapter \ref{proposal}. 
+
+Current plans are to host source code on Github and deployments on 
+Heroku and/or Google App Engine. At this time, we are still finalizing
+the final host locations for our project.
+
+We follow with the profiles of our project team members.
+
+\section{Jeff Adler}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Jeff is proficient with Java, C, C\#, C++, Python, and Ruby. 
+
+\section{Eric Cuiffo}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Eric is proficient with C++, Python, HTML/CSS, and jQuery. He is also
+familiar with Django and Android development.
+
+\section{Nick Palumbo}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Nick is proficient with Java.
+
+\section{Jeff Rabinowitz}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Jeff is proficient with C++, and is also familiar with Ruby, Python,
+C\#, and HTML/CSS.
+
+\section{Val Red}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Val is proficient with HTML/CSS, PHP, and C++. He is also familiar with
+Ruby, Python, and Bash.
+
+\section{Dario Rethage}
+
+\subsection{Qualifications}
+\subsection{Strengths}
+Dario is proficient with Java, PHP, C, Objective C, and HTML/CSS. 
+
+\section{Team Leader: Mr. X}
+
+\chapter{Project Proposal}
+\label{proposal}
+
+
+\end{document}
