@@ -1,0 +1,69 @@
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+
+% define custom title layout (slightly temperamental)
+\title{%
+{\color{color2} \hrule}\vspace{1cm}
+\Huge{\color{color1} Report 1 Part 1\\ % Specifications\\
+{\emph{for}}\\
+``Capital Games'' \vspace{1cm}
+}
+{\color{color2} \hrule}\vspace{1cm}
+\Large{ \color{color2} Proposal\\
+Software Engineering\\
+14:332:452}
+}
+
+% define custom author layout (highly temperamental)
+\author{\huge{\color{color1}Team 2:\\}\vskip.1in \Large{Jeff Adler \\Eric Cuiffo\\Nick Palumbo\\Jeff Rabinowitz\\Val Red\\Dario Rethage}}
+\date{\Large{\today}}
+
+
+
+\usepackage{hyperref}
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+
+
+\pagebreak  % flush the next page
+
+\chapter*{Contributions Breakdown}
+\begin{centering}
+\begin{tabular}{cc|c|c|c|c|c|c|}
+\cline{3-8}
+& & \multicolumn{6}{ c| }{Names} \\ \cline{1-8}
+\multicolumn{1}{|c|}{Category} & \multicolumn{1}{c|}{Points} & 
+Jeff A & Eric C & Nick P & Jeff R & Val R & Dario R \\ \cline{1-8}
+\multicolumn{1}{|c|}{Project Management} & \multicolumn{1}{c|}{10 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Customer Requirements} & \multicolumn{1}{c|}{9 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{System Requirements} & \multicolumn{1}{c|}{6 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Functional Requirements} & \multicolumn{1}{c|}{30 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{User Interface Specifications} & \multicolumn{1}{c|}{15 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Domain Analysis} & \multicolumn{1}{c|}{25 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Plan of Work} & \multicolumn{1}{c|}{5 Points} & 
+0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
+\end{tabular}
+\end{centering}
+
+As shown above, all work was done equally.
+
+\pagebreak
+
+\tableofcontents % create TOC
+%\chapter*{Revision History}
+%\chapter{Introduction}
+%\section{Purpose}
+%\section{Project Scope and Product Features}
+%\section{References}
+%\chapter{Overall Description}
+%\section{Product Perspective}
+%\section{User Classes and Characteristics}
+
+\end{document}
