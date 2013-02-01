@@ -1,62 +1,47 @@
+% Report 1 Template
+% Team 2
+% All rights reserved
+
 \documentclass[11pt,letterpaper,oneside]{memoir}
 \usepackage{mystyle}
+%\usepackage{hyperref}
 
-% define custom title layout (slightly temperamental)
-\title{%
-{\color{color2} \hrule}\vspace{1cm}
-\Huge{\color{color1} User Requirements\\ % Specifications\\
-{\emph{for}}\\
-``Capital Games'' \vspace{1cm}
-}
-{\color{color2} \hrule}\vspace{1cm}
-\Large{ \color{color2} Report 1: Part 1\\
-Software Engineering\\
-14:332:452}
-}
+% Include Title page
+\include{./tex/title1}
 
-% define custom author layout (highly temperamental)
-\author{\huge{\color{color1}Team 2:\\}\vskip.1in \Large{Jeff Adler \\Eric Cuiffo\\Nick Palumbo\\Jeff Rabinowitz\\Val Red\\Dario Rethage}}
-\date{\Large{\today}}
-
-\usepackage{hyperref}
 \begin{document}
 %\maketitle % don't use this, will break the Author section
 \titleGM    % use this instead, defined to avoid problem
-
-
 \pagebreak  % flush the next page
 
-\chapter*{Contributions Breakdown}
-\begin{centering}
-\renewcommand\arraystretch{2}
-\begin{tabular}{cc|c|c|c|c|c|c|}
-\cline{3-8}
-& & \multicolumn{6}{ c| }{Names} \\ \cline{1-8}
-\multicolumn{1}{|c|}{Category} & \multicolumn{1}{c|}{Points} & 
-Jeff A & Eric C & Nick P & Jeff R & Val R & Dario R \\ \cline{1-8}
-\multicolumn{1}{|c|}{Project Management} & \multicolumn{1}{c|}{10 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{Customer Requirements} & \multicolumn{1}{c|}{9 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{System Requirements} & \multicolumn{1}{c|}{6 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{Functional Requirements} & \multicolumn{1}{c|}{30 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{User Interface Specifications} & \multicolumn{1}{c|}{15 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{Domain Analysis} & \multicolumn{1}{c|}{25 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\multicolumn{1}{|c|}{Plan of Work} & \multicolumn{1}{c|}{5 Points} & 
-0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \cline{1-8}
-\end{tabular}
-\end{centering}
+% Include Contributions page
+\include{./tex/contributions}
 
 \pagebreak
 
 \tableofcontents % create TOC
 
-% Include first stub
-\include{./tex/report1part1stub}
+% Chapter 1
+% Include Customer Statement of Requirements
+\include{./tex/customersor}
+
+% Input Glossary
+\input{./tex/glossary}
+
+% Chapter 2
+% Include System Enumerated Requirements
+\input{./tex/enumrequirements}
+
+% Input On Screen Appearance Requirements
+\input{./tex/onscreenappearancerequirements}
+
+% Project Management
+% This includes timelines, how the team divided up work, etc..
+\include{./tex/management}
+
+% References
+% This includes... references
+\include{./tex/references}
 
 \end{document}
 
