@@ -4,12 +4,12 @@
 % define custom title layout (slightly temperamental)
 \title{%
 {\color{color2} \hrule}\vspace{1cm}
-\Huge{\color{color1} Report 1 Part 1\\ % Specifications\\
+\Huge{\color{color1} User Requirements\\ % Specifications\\
 {\emph{for}}\\
 ``Capital Games'' \vspace{1cm}
 }
 {\color{color2} \hrule}\vspace{1cm}
-\Large{ \color{color2} Proposal\\
+\Large{ \color{color2} Report 1: Part 1\\
 Software Engineering\\
 14:332:452}
 }
@@ -17,8 +17,6 @@ Software Engineering\\
 % define custom author layout (highly temperamental)
 \author{\huge{\color{color1}Team 2:\\}\vskip.1in \Large{Jeff Adler \\Eric Cuiffo\\Nick Palumbo\\Jeff Rabinowitz\\Val Red\\Dario Rethage}}
 \date{\Large{\today}}
-
-
 
 \usepackage{hyperref}
 \begin{document}
@@ -30,6 +28,7 @@ Software Engineering\\
 
 \chapter*{Contributions Breakdown}
 \begin{centering}
+\renewcommand\arraystretch{2}
 \begin{tabular}{cc|c|c|c|c|c|c|}
 \cline{3-8}
 & & \multicolumn{6}{ c| }{Names} \\ \cline{1-8}
@@ -52,18 +51,12 @@ Jeff A & Eric C & Nick P & Jeff R & Val R & Dario R \\ \cline{1-8}
 \end{tabular}
 \end{centering}
 
-As shown above, all work was done equally.
-
 \pagebreak
 
 \tableofcontents % create TOC
-%\chapter*{Revision History}
-%\chapter{Introduction}
-%\section{Purpose}
-%\section{Project Scope and Product Features}
-%\section{References}
-%\chapter{Overall Description}
-%\section{Product Perspective}
-%\section{User Classes and Characteristics}
+
+% Include first stub
+\include{./tex/report1part1stub}
 
 \end{document}
+
