@@ -190,52 +190,73 @@ failed to model performance of their portfolios, instead simply regurgitating th
 values. An important improvement will be offering the ability to compare to previous trading
 data.
 
-\chapter{Subsystem Teams}
+\section{Educational Tutorial}
 
-We have decided to divvy up the group into three principle subsystem teams, with additional
-modules of functionality also assigned based on relevance. Because of the ``MVC'' logical
-abstraction of the web framework we intend to leverage, Ruby on Rails, we intend to 
-section our group accordingly, with each team focusing primarily on one component. Of course
-teams will communicate and coordinate, as is necessary for such a large scale project.
-However, this gives each developer a field of expertise and responsibility.
+There are two target demographics for this application: students and novice investors. As a
+result, we find it important to the success of our project that we include an interactive
+tutorial to educate our users in both the basics and more advanced aspects of investing
+and finance. This will greatly broaden our appeal to users and make a marked improvement over
+previous interactions by combining social, educational, and entertaining elements to create
+a rich and captivating experience.
 
-Each team is responsible for unit testing their own projects.
+\chapter{Product Ownership}
 
-\section{Models Team}
+We have decided to divvy up the group in such a way that each function is claimed by a
+particular team member. In this way, we allow for easy traceability for the future reference
+and to determine accountability. When the customer is in need of finding the "go to" person for
+a specific function of the project, this will be the person to consult. Of course, this
+is not to say that each team member works in a vacuum. As each person's particular skills vary,
+one may contract out some part of his own function to another team member. In fact, as many
+functions will likely interface with one another, it will almost certainly be required for some
+cross-functional cooperation. However, it is important for the person with ownership to be very
+particular about the design and understanding of his function.
 
-Jeff Adler and Jeff Rabinowitz will be working on the Models Team. In MVC architectures, models
-are abstractions which logically map database entries to programmatic objects. The Models Team
-will be responsible for developing, testing, and debugging the implementations of databases,
-object mapping, and data models. 
+Each person is responsible for unit testing his own projects.
 
-The Models Team will also be responsible for abstracting the Yahoo! Finance API so as to be 
-accessible to the Views Team, who will use the results to query for live data. (This may
-or may not include incorporating returned data into the database, to be worked out with the 
-Views Team.)
-Furthermore, the Models Team will configure the EC2 service, web servers, databases, 
-deployments, and maintenance. 
+\section{Portfolio Functionality}
+Nick Palumbo will be taking responsibility for the portfolio functionality of this project. One main
+aspect of this is the way a user is able to enact trades within their own portfolio, including basic
+transactions such as buy and sell as well as more advanced actions like short/cover and stop/limit.
+In addition, Nick will be responsible for the structure of leagues and the way in which users create
+and join leagues.
 
-\section{Views Team}
+\section{Social Functionality}
 
-Dario Rethage and Nick Palumbo will be working on the Views Team. In MVC architectures, views
-are abstractions of static interfaces with dynamically loaded content. The Views Team will be 
-responsible for authoring and formatting the HTML/CSS of our responsive web design, as well
-as incorporating the models to dynamically load content into a responsive design. This includes
-building user and league forms, site navigation bars, and logging and trading interfaces.
+Dario Rethage will be taking responsibility for the social functionality of this project. As this
+application will involve grouping users into leagues and competition, it is important for users
+to be able to interact with one another in the form of viewing one another's portfolios,
+leaderboards, and the live activity stream. Dario will be in charge of implementing these functions
+in a way that is intuitive and clean as well implementing a commenting/messaging system
+between users.
 
-The Views Team will also be responsible for building class(es) to parse queried Yahoo! Finance
-data and translate it into the views. This includes the HighStock Javascript graphs, which
-require data to render, as well as any tables or charts which may contain data textually. 
+\section{Interactive and Graphical Functionality}
 
-\section{Controllers Team}
+Val Red will be taking responsibility for the interactive and graphical functionality of this project.
+This includes being able to view one's own portfolio as well as the finances of his league mates in
+an easily maneuverable and manipulatable way. In addition, Val will be in charge of the way
+users follow the trends of a company's stock performance and view any other relevant data
+pertaining to a company, industry, or user.
 
-Val Red and Eric Cuiffo will be working on the Controllers Team. In MVC architectures,
-controllers are abstractions of user interactions with the site, called ``actions''. The 
-Controllers Team will be responsible for defining the RESTful site design, as well as user
-authorization and authentication systems. (There are Rails plugins which offer these 
-utilities.)
-They will also be responsible for implementing the
-email updates system, although designing email templates and tracking subscriptions will be
-handled by the Views and Models Teams, respectively.
+\section{Account Functionality}
+Eric Cuiffo will be taking responsibility for the account fuctiionality of this project. He will be
+heading functions such as registration, Facebook integration, and user profile settings. Also,
+he will implement account management operations such as changing passwords or account deletion.
+In addition, he will create ways in which users can receive information about their accounts, such
+as downloading personal portfolio reports or the e-mail updates described above.
+
+\section{League Functionality}
+Jeff Rabinowitz will be taking responsibility for the league functionality of this project. Pertinent
+functions here will be the powers and actions available to the league manager of a given league,
+such as league settings and player management. Jeff will implement the different league
+settings available to a manager, as well the ability to create league-wide announcements and
+moderating comments within the league.
+
+\section{Administrative Functionality}
+
+Jeff Adler will be taking responsibility for the administrative functionality of this project. This essentially
+covers all the power available to a site administrator. He will be responsible for the ways in which an
+administrator can manage leagues, users, and user interactions. He will also generate the way in which
+site administrators can view statistics about the website, such as user count, active leagues, transactions,
+new accounts, popular stocks, and other relevant data that will dictate product decisions down the road.
 
 \end{document}
