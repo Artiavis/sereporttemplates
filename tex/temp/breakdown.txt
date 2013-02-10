@@ -1,0 +1,39 @@
+Market
+	-Symbol List
+		-Ticker Symbol
+
+
+
+investor
+	-portfolio
+		-graphical reports
+
+
+league
+	-public/private
+	-Environment
+		-Locked Variables
+			-Starting Money
+			-Commission
+			-Minimum Stock Price
+			-Maximum Stock Price
+			-Trading Volume Limit
+		-Unlocked Variables
+			-Teams
+			-Extend Tournament
+			-Reset League?
+
+Limit Order
+Market Order
+Portfolio
+Stock
+Stop Order
+User
+
+
+
+Modes:
+	-user mode
+	-manage mode
+	-admin mode
+
