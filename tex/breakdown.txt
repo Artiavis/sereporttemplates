@@ -1,0 +1,44 @@
+Stock - the equity stake of a companies owners
+		-Ticker Symbol -  an abbreviation used to uniquely identify publicly traded shares of a particular stock on a particular stock market.
+
+		-Symbol List - a list of a market/several market's ticker symbols
+	-Stocks
+	- Ask Price - The price at which a trader is willing to sell a stock.
+	- Bid Price - The price a trader is willing to pay for a stock.
+
+investor
+	-portfolio
+		-graphical reports
+
+
+league
+	-global - A league comprised of all players of the game. Upon joining players are automatically added to this league. There is only one global league.
+	-public - Any Investor can join this type of League
+	-private - A private league can only be joined through invitation or accepted request
+
+	League Manager - 
+	-Environment
+		-Locked Variables
+			-Starting Money - Balance each Investor starts with that can be used towards investing
+			-Commission - percentage of profites taken by broker during trade
+			-Minimum Stock Price - Minimum Ask Price limit
+			-Maximum Stock Price - Maximum Ask Price limit
+			-Trading Volume Limit - Maximum number of shares that can be traded in an alotted time.
+		-Unlocked Variables
+			-Extend League - increase league time
+			-Reset League - Everyone looses progress, league resets, must be approved by League Admin
+
+Limit Order
+Market Order
+Portfolio
+Stock
+Stop Order
+User
+
+
+
+Modes:
+	-user mode
+	-manage mode
+	-admin mode
+
