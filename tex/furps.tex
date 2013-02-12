@@ -1,24 +1,24 @@
-\chapter{Nonfunctional Requirements}
+\section{Nonfunctional Requirements}
 
-\section{Functional}
+\subsection{Functional}
 Additional features for security could be enabled through the use of gems in Ruby on Rails. There exists several packages for the purpose of authentication and authorization of applications. 
 Devise is a Rails gem that provides solutions for authentication. Some key features to this gem are the the ability to encrypt and store passwords, provide recovery options for users that have forgotten their password and store a cookie to validate the session. 
 Cancan is a Rails gem that provides solutions for authorization. This will allow for a user to perform different actions based on their position. For example, a user will be able to comment and delete their own comment, but an admin will be able to comment and delete all comments on the league they are an admin of.
 
 
-\section{Usability}
+\subsection{Usability}
 A key point in the design of this application is ease of use and appeal to the users. Through the use of CSS and Bootstrap, we will be able to make the theme of our application consistant and pleasing. With CSS, we will create a universal header and navigation bar that each page will build off of. Javascript will provide for responsiveness and it will be the key framework for which we build our interactive tutorials upon. The interactive tutorials are meant for inexperienced users in the topic of stocks to learn the fundamentals of the game. Any user that finds themselves lost later on can always view these tutorials again or browse through any specific topic.
 
 
-\section{Reliability}
+\subsection{Reliability}
 In order to ensure that there is no confusion to the user in the case of the internet or server failure, all transactions end with a final confirmation, and no changes to the account are made until after this confirmation. A user that leaves the application and returns later will still be logged in. Server failures should be dealt with by the application's host.
 
 
-\section{Performance}
+\subsection{Performance}
 The performance of the site is mostly maintained by the Rails framework. To moniter performance from the application, the Rails Performance Management tool is availible to measure speeds and help find problem areas.
 
 
-\section{Supportability}
+\subsection{Supportability}
 Ruby on Rails provides measures for supportability. Rspec, Capybara and Cucumber are Rails gems that provide for testing that can be very similar to writing use cases. With these tools, the process of test driven development can be facilitated. 
 The project should be highly portable in the sense that a user will be able to access the website on all major browsers and mobile devices, and have a specilized appearance for both. 
 For maintainability, there is the option of a user to be a site admin. These users can view 
