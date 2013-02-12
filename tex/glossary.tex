@@ -2,53 +2,41 @@
 
 {
 \raggedright
-\textbf{Investor} - A person who commits capital expecting to see it grow in value. Users are referred 
-to as \emph{investors}.
-
 \textbf{Stock} - the equity stake of a companies owners
 \begin{itemize}
 \item \textbf{Ticker Symbol} - an abbreviation used to uniquely identify publicly traded shares of a particular stock on a particular stock market.
 \item \textbf{Symbol List} - a list of a market/several market's ticker symbols
 \end{itemize}
 
+\textbf{Portfolio} - A detailed account of the \emph{stocks} associated with an \emph{investor} 
+in a given league. Portfolios are unique. 
+
 \textbf{User Roles} - Each user with an account can have one or more of the following roles
 \begin{itemize}
 \item \textbf{Investor} - A person who commits capital expecting to see it grow in value. Users are referred 
 to as \emph{investors}.
 \item \textbf{League Manager} - A League Manager is an \emph{investor}.  A user does not necessarily have this role for every league they are in.  Only ones in which they created the League or were given a League Manager role from another League Manager of that League 
-\item \textbf{Site Administrator} - This is the most powerfull role. A Site Administrator is a \emph{League Manager} for every \emph{League} that they are in
+\item \textbf{Site Administrator} - This is the most powerful role. A Site Administrator is a \emph{League Manager} for every \emph{League} that they are in
 \item \textbf{Suspended} - A user with this role is currently pending loosing their Suspended Role, or granted a \emph{Banned} role.  While suspended an \emph{Investor} cannot do anything with their Account other then login and view the duration of their suspension, The reasoning behind their ban, and an appeal form if the situation permits.
-\item \textbf{Banned} - I banned user is a permanently banned and cannot appeal, this occurs after a rejected suspension appeal.
+\item \textbf{Banned} - A banned user can never be unbanned, this occurs after a rejected suspension appeal.
 \end{itemize}
 
-\textbf{League} - an instance of a market simulation with a predefined ruleset and containing many \emph{investors}. All leagues are created by a \emph{League Manager} There are two types of leagues:
+\textbf{League} - an instance of a market simulation with a predefined rule-set and containing many \emph{investors}. All leagues are created by a \emph{League Manager} There are two types of leagues:
 \begin{itemize}
 \item \textbf{Public} - Any Investor can join this type of League
 \item \textbf{Private} - A private league can only be joined through invitation or accepted request
 \end{itemize}
 
-
-\textbf{Limit Order} - A type of order used to prevent trades from occurring except at indicated
-prices. Buy limit orders will only be executed at or below the indicated price, and sell limit
-orders will be executed at or above the indicated price. Limit orders are not guaranteed to ever
-be executed and expire after a specified duration.
-
-\textbf{Market Order} - An order to be executed as soon as possible at current market prices.
-
-\textbf{Portfolio} - A detailed account of the \emph{stocks} associated with an \emph{investor} 
-in a given league. Portfolios are unique. 
-
-\textbf{Stock} - A type of asset that represents ownership of a corporation. \emph{Investors} can
-execute exchanges against stocks for their \emph{portfolios}.
-
-\textbf{Stop Order} - A type of order used to protect gains or limit losses. Stop loss
+\textbf{Order} - An \emph{investor} must place an order for the purchase or sale of a \emph{stock}
+\begin{itemize}
+\item \textbf{Stop Order} - A type of order used to protect gains or limit losses. Stop loss
 orders are activated if a stock drops below the stop price and buy stop orders
 are activated if a stock rises above the stop price. When activated, a Stop Order becomes a
 \emph{Market Order}. 
-
-\textbf{Ticker Symbol} - A unique series of letters assigned to a \emph{stock} for the purpose of
-trading.
-
-\textbf{User} - Synonymous with \emph{investor}.
-
+\item \textbf{Limit Order} - A type of order used to prevent trades from occurring except at indicated
+prices. Buy limit orders will only be executed at or below the indicated price, and sell limit
+orders will be executed at or above the indicated price. Limit orders are not guaranteed to ever
+be executed and expire after a specified duration.
+\item \textbf{Market Order} - An order to be executed as soon as possible at current market prices.
+\end{itemize}
 }
