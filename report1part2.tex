@@ -1,0 +1,40 @@
+% Report 1 Template
+% Team 2
+% All rights reserved
+
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+%\usepackage{hyperref}
+
+% Include Title page
+\include{./tex/title2}
+
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+%\pagebreak  % flush the next page
+
+% Include Contributions page
+\include{./tex/contributions}
+
+\pagebreak
+
+\tableofcontents % create TOC
+
+% Chapter 3
+% Include Functional Requirements Spec
+\include{./tex/functionalrequirements}
+
+% Chapter 4
+% Include UI Specification
+
+% Project Management
+% This includes timelines, how the team divided up work, etc..
+\include{./tex/management}
+
+% References
+% This includes... references
+\include{./tex/references}
+
+\end{document}
+
