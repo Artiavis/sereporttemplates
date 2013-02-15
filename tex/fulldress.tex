@@ -1,9 +1,11 @@
 % This file contains only the fully dressed use cases
 
-Before a user can participate in most of the functionality of our site, the user must first join or create a league. Ultimately, creating a league is very similar to joining a league, with the only exception being that the user becomes League Manager of a league that they create and that the new league must be added to the database. Therefore, the two will be represented as one use case with alternate scenarios. The responsibilities of the League Manager will be explored in a later use case. One relevant aspect of the responsibily of a League Manager to the use case though, is whether a league is made public or private; that is, whether it shows up in a public league listing page or can only be joined by direct invitiation from the League Manager. Thus, our first use case involves a business policy: \\ \\
-\textbf{CG-BP01:} So that a user may create a join leagues with only their friends, leagues marked as private will not show up on the league listings. \\
+Before a user can participate in most of the functionality of our site, the user must first join or create a league. To the user, creating a league is very similar to joining a league, the notable differences being that the user becomes League Manager of a league that they create and then must also invite users to join said league. Therefore, we detail 
+joining/creation as a single use case. User invitation, as a responsibility of the League Manager, will be explored in a later use case. One relevant aspect of the responsibily of a League Manager to the use case though, is whether a league is made public or private; that is, whether it shows up in a public league listing page or can only be joined by direct invitiation from the League Manager. Thus, our first use case involves a business policy: \\ \\
+\textbf{CG-BP01:} So that a user may create a join leagues with only their friends, leagues marked as private will not show up on the league listings unless a user is a current or
+pending member. \\
 
-Thus, a user will only be able to browse listings of public leagues. \\
+Thus, a user will only be able to browse listings of public leagues or private leagues to which they have access. \\
 
 \begin{centering}
 \renewcommand\arraystretch{1.3} % Causes rows to be spaced
@@ -11,22 +13,22 @@ Thus, a user will only be able to browse listings of public leagues. \\
 \hline
 % BFSeries should cause text to be bold
 % Color1 should cause text to be blue... may be broken idk
-\bfseries{\color{color1}Use Case UC-1} & \bfseries{\color{color1}Join League} \\
+\bfseries{\color{color1}Use Case UC-1} & \bfseries{\color{color1}Join or Create League} \\
 \hline
 Related Requirements: & ST-2, ST-21 \\ 
 Initiating Actor:     & User \\
 Actor's Goal:         & To join or create a fantasy finance league \\
 Participating Actors:  & Database, Other Users, League Managers\\
-Preconditions:        & -A public league exists and has open positions \\
+Preconditions:        & -If joining a league, either a public league exists and has open positions \textbf{or} player has been invited to a private league\\
  & -User is logged in \\
-Postconditions:       & -The \textbf{Database} is updated to reflect the user's participation in the lague \\
+Postconditions:       & -The \textbf{Database} is updated to reflect the creation of or addition to the league \\
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Main Success Scenario:}\\
 \hline
 $\rightarrow$ & 1. \textbf{User} navigates to leagues listing page \\
-$\leftarrow$ & 2. \textbf{System} displays public leagues available for the \textbf{User}, sorted by date created \\
-$\rightarrow$ & 3. \textbf{User} selects join on a league in which they are interesting in joining \\
-$\leftarrow$ & 4. \textbf{System} registers \textbf{User} into that league, notifying \textbf{Database} to update to reflect this change \\
+$\leftarrow$ & 2. \textbf{System} displays public and pending private leagues available for the \textbf{User}, sorted by date created \\
+$\rightarrow$ & 3. \textbf{User} selects join on a league in which they are interesting in joining and to which they have access \\
+$\leftarrow$ & 4. \textbf{System} authorizes user and registers \textbf{User} into that league, notifying \textbf{Database} to update to reflect this change \\
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Extensions (Alternate Scenarios):} \\
 \hline
@@ -34,14 +36,19 @@ $\leftarrow$ & 4. \textbf{System} registers \textbf{User} into that league, noti
 \hline
 $\rightarrow$ & 1.  \textbf{User} inputs desired league name and settings \\
 $\leftarrow$ & 2. \textbf{System} (a) creates the league and inputs it to the \textbf{Database} and (b) registers the \textbf{User} into that league as \textbf{League Manager} \\
-\hline 
+\hline
+\multicolumn{2}{|p{6.2in}|}{4a. The \textbf{user} attempts to join or create a league without permission} \\
+\hline
+$\leftarrow$ & 1.  \textbf{System} rejects request and delivers reason for rejection \\
+\hline
 \end{longtable}
 \end{centering}
 
 It is important here to note another business policy of our site relevant to the user's experience: \\ \\
 \textbf{CG-BP02:} A user is able to join an unlimited number of leagues and become League Manager for as many leagues as the user wishes to create. \\
 
-Though the settings are selected when creating the league, any League Manager can change the settings of their league at any time. These settings are comprehensive, including such items as name, privacy, number of spots, and rules which define how much money each league member receives to spend and other conditions under which all league members much operate for participation in that league. In addition, the League Manager can also manage members from the settings.\\
+Though the settings are selected when creating the league, any League Manager can change certain settings of their league at any time. These settings are comprehensive, including such items as name, privacy, number of spots, and duration. In addition, the League Manager can also manage members from the settings. However, certain settings cannot be 
+changed after the league enters active competition, such as starting capital, commission rate, and margin, because changing primary competition rules mid-game would be unfair.\\
 
 \begin{centering}
 \renewcommand\arraystretch{1.3} % Causes rows to be spaced
@@ -64,8 +71,8 @@ Postconditions:       & -The league settings have been changed as desired and th
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Main Success Scenario:}\\
 \hline
 $\rightarrow$ & 1. \textbf{League Manager} selects the league settings option from the league page \\
-$\leftarrow$ & 2. \textbf{System} requests the current settings from the \textbf{Database} and presents them to the \textbf{League Manager} along with options to change the settings \\
-$\rightarrow$ & 3. \textbf{League Manager} updates the settings, such as privacy, league name, number of spots, rules, and managing users \\
+$\leftarrow$ & 2. \textbf{System} requests the current settings from the \textbf{Database} and presents them to the \textbf{League Manager} along with options to change select settings \\
+$\rightarrow$ & 3. \textbf{League Manager} updates the settings, such as privacy, league name, number of spots, and managing users \\
 $\leftarrow$ & 4. \textbf{System} sends the updated settings to the \textbf{Database} \\
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Extensions (Alternate Scenarios):} \\
@@ -140,7 +147,7 @@ The goal of browsing companies ultimately is for the user to gain the knowledge 
 \hline
 Related Requirements: & ST-5 \\ 
 Initiating Actor:     & User \\
-Actor's Goal:         & To buy or sell stock, or to place a short, stop, or limit order \\
+Actor's Goal:         & To place a market, stop, or limit order \\
 Participating Actors:  & Database, Financial API \\
 Preconditions:        & -Financial API is accepting inquiries \\
  & -User is logged in \\
