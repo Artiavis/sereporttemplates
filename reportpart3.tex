@@ -1,0 +1,60 @@
+% Report 1 Template
+% Team 2
+% All rights reserved
+
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+%\usepackage{hyperref}
+
+% Include Title page
+\include{./tex/title3}
+
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+%\pagebreak  % flush the next page
+\tableofcontents % create TOC
+
+% Chapter 1
+% Include Customer Statement of Requirements
+\include{./tex/customersor}
+
+% Input Glossary
+\input{./tex/glossary}
+
+% Chapter 2
+% Include System Enumerated Requirements
+\input{./tex/enumrequirements}
+
+% Include FURPS
+\input{./tex/furps}
+
+% Input On Screen Appearance Requirements
+\input{./tex/onscreenappearancerequirements}
+
+% Chapter 3
+% Include Functional Requirements Spec
+\include{./tex/functionalrequirements}
+
+% Chapter 4
+% Include UI Specification
+\include{./tex/uispec}
+
+% Chapter 5
+% Domain Analysis
+\include{/.tex/domain}
+\input{./tex/opcontracts}
+\input{./tex/econmodels}
+
+% Chapter 6
+% Plan of Work
+\include{./tex/planofwork}
+
+% Project Management
+% This includes timelines, how the team divided up work, etc..
+\input{./tex/management}
+
+% References
+\bibliography{citations}
+
+\end{document}
