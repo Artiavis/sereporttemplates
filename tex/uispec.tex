@@ -4,43 +4,47 @@
 % and explanations, lots of graphics
 \section{Preliminary Design}
 
-\subsection{Company}
-From this page, you are able to view details statistics about certain companies after being linked to it or searching for it. Major details, such as the quote, are up at the top while further details are at the bottom. A user can comment on the company on the bottom right. If you decide that you want to trade, you simply press the trade button and a box will pop-up, giving you options for the trade.//
+See the illustrations below.
+
 \begin{figure}
 \centering
 \includegraphics[width=5.5in]{./mockups/JPEG/company.jpg}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{./mockups/JPEG/Trade_popup.jpg}
+\caption{From the Company page, you are able to view details statistics about certain companies after being linked to it or searching for it. Major details, such as the quote, are up at the top while further details are at the bottom. A user can comment on the company on the bottom right. If you decide that you want to trade, you simply press the trade button and a box will pop-up, giving you options for the trade.}
 \end{figure}
 
-\subsection{League}
-From this page, you are able to view a certain league. Up at the top are the main facts about the league as well as a button to join/quit the league and the icon for it. In the middle, there is a ranking system to show the users in the highest standing. Down at the bottom, you can see the activity and also comment on the league itself. //
 \begin{figure}
 \centering
-\includegraphics[width=5.5in]{./mockups/JPEG/Leagues_third.jpg}
-\end{figure}
-
-\subsection{League Admin}
-A league admin will see the join/quit button on a league as the settings page for them. When they click on that, they are brought to a page that gives them many settings they can change for the league, the most typical being the name, description and icon.//
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{./mockups/JPEG/Leagues_admin.jpg}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{./mockups/JPEG/league_admin.jpg}
+\includegraphics[width=5.5in]{./mockups/JPEG/Tradepopup.jpg}
 \end{figure}
 
 
-\subsection{Messages}
-A league admin will see the join/quit button on a league as the settings page for them. When they click on that, they are brought to a page that gives them many settings they can change for the league, the most typical being the name, description and icon.//
+
+\begin{figure}
+\centering
+\includegraphics[width=5.5in]{./mockups/JPEG/Leaguesthird.jpg}
+\caption{From this page, you are able to view a certain league. Up at the top are the main facts about the league as well as a button to join/quit the league and the icon for it. In the middle, there is a ranking system to show the users in the highest standing. Down at the bottom, you can see the activity and also comment on the league itself.}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=5.5in]{./mockups/JPEG/Leaguesadmin.jpg}
+\caption{A league admin will see the join/quit button on a league as the settings page for them. When they click on that, they are brought to a page that gives them many settings they can change for the league, the most typical being the name, description and icon.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.5in]{./mockups/JPEG/leagueadmin.jpg}
+\end{figure}
+
+
+
 \begin{figure}
 \centering
 \includegraphics[width=5.5in]{./mockups/JPEG/messages.jpg}
+\caption{A league admin will see the join/quit button on a league as the settings page for them. When they click on that, they are brought to a page that gives them many settings they can change for the league, the most typical being the name, description and icon.}
 \end{figure}
-\subsection{Login}
+
 {
 \begin{figure}
 \centering
@@ -50,7 +54,7 @@ A league admin will see the join/quit button on a league as the settings page fo
 }
 %\vspace
 
-\subection{Register}
+
 {
 \begin{figure}
 \centering
@@ -60,7 +64,7 @@ A league admin will see the join/quit button on a league as the settings page fo
 }
 %\vspace
 
-\subsection{Portfolio}
+
 {
 \begin{figure}
 \centering
@@ -70,7 +74,7 @@ A league admin will see the join/quit button on a league as the settings page fo
 }
 %\vspace
 
-\subsection{User Management}
+
 {
 \begin{figure}
 \centering
@@ -80,7 +84,7 @@ A league admin will see the join/quit button on a league as the settings page fo
 }
 %\vspace
 
-\subsection{Report}
+
 {
 \begin{figure}
 \centering
@@ -94,3 +98,54 @@ A league admin will see the join/quit button on a league as the settings page fo
 % of user effort and ease of access
 % See Appendix A for examples to boost grade
 \section{User Effort Estimation}
+
+Capital Games will utilize a streamlined user interface that has become rampant in modern web design. Essentially, all user interaction regarding login/sign-up and even actual interactions with their fantasy leagues and league portfolios can all be done within at most ten clicks and 50 keystrokes for data entry, and most of these interactions are in the registration process.
+
+\begin{enumerate}
+\item Login/Registration: 2 mouse clicks and 50 keystrokes
+\begin{enumerate}
+\item Click Login/Register on the corner of the header.
+\item Data entry (20 keystrokes for username and password). (In addition, for registration, 10 to confirm password, 15 for e-mail address, and 5 for CAPTCHA for spambot control over the login/registration interfaces)
+In addition, all these keystrokes can be simplified in one click with Facebook integration, in which the site will pull their Facebook login data and use it for Capital Games.
+\end{enumerate}
+\item League Portfolio Interaction: Buy/Sell, 3 clicks and 10 keystrokes
+\begin{enumerate}
+\item Click Portfolio tab in navigation menu header.
+\item Hover over any company listing on the page with your cursor and click Buy/Sell.
+\item Input amount of shares you want to buy/sell. 
+\item Click to confirm.
+\end{enumerate}
+\item Create Fantasy League: 10 clicks and 10 keystrokes
+\begin{enumerate}
+\item Click League tab in navigation menu header.
+\item Click Create New League in submenu.
+\item Enter League Name and Click Checkboxes for desired rules.
+\item Click to confirm.
+\end{enumerate}
+\item Company: 3 clicks and 4 keystrokes
+\begin{enumerate}
+\item Press the Trade button
+\item Select Buy/Sell 
+\item Type in number of stocks 
+\item Click to accept
+\end{enumerate}
+\item League Users: One click
+\begin{enumerate}
+\item To view all members of the league, click See All Members
+\item As an Administrator or League Manager, deleting comments is one click on the delete button next to a comment
+\end{enumerate}
+\item League Manager: Four clicks
+\begin{enumerate}
+\item Click League Settings
+\item Click Users tab
+\item Edit anything
+\item Click Save Changes
+\end{enumerate}
+
+\item Messages: 2 clicks plus message
+\begin{enumerate}
+\item Click friend from drop down list
+\item Enter message
+\item Click send
+\end{enumerate}
+\end{enumerate}
