@@ -1,26 +1,25 @@
 \section{Economic and Mathematical Models}
 
-% Here put a discussion of the various assumptions 
-% and simplifications used by economists and mathematicians
-% used to describe the financial markets IE microeconomic
-% assumption that no one person has undue influence as long
-% as we stipulate that he doesn't have too much money, but
-% to make sure, we need to limit the money people can have.
-% Cite one or two sources. 
-%
-% Also explain the bid/ask spread, or in other words, 
-% why if Person A sells at $X.YZ, and Person A buys
-% at $X.YZ, they could be paying a little more or less than
-% they would have otherwise thought. Bla blah read about how
-% the bid/ask spread works and explain that we make the 
-% simplifying assumption that all purchases happen at the 
-% ask price and all sales happen at the bid price. 
-%
-% Finally describe how even though Marsic described in his 
-% email an algorithmic way of implementing Report Abuse
-% functionality, we'll use a "binary" model ;)  because
-% we wanted to focus on core features first and the model
-% can be changed later at our discretion. 
+\subsection{Perfect Competition}
 
-% Just make it sound like it was a conscious decision to be 
-% use simpler models.
+One important concept of the stock market is the idea of perfect competition. Perfect competition is a theory in economics that states that it is not possible for any one participant to have enough resources to control the entire market. In terms of our project, that boils down to the following: 
+\begin{enumerate}
+\item
+One single person cannot control the stock market.
+\item
+Anyone should be able to enter or exit the market with ease.
+\item
+Buyers know the full details of any stock they are to trade.
+\item
+There is no difference in the buying and selling price.
+\end{enumerate}
+The problem with this model is that it is not entirely perfect or plausible. In order for no one person to be able to control the stock market, we need to be able to control the amount of money someone can have, so that they do not have enough to make an effect like that. This means that we have to set a cap on the money in our system, a point where no one will be able to go above that is still not low enough that it would happen often. Point two is taken care of by point one because one person can easily move in and out of the market without any effect. Point three will be satisfied as long as we provide necessary details in our user interface so that one will know everything they have to know before they buy. The last point is one that is flawed because it is an actual issue. It is described more in the next subsection.
+
+\subsection{Bid-Ask Spread}
+
+In order to understand what the bid-ask spread is, first we must define bid and ask. In the terms of the stock market, a bid is the price in which someone is able to sell a stock. On the opposite side, an ask is the price in which someone is able to buy a stock. These two prices are marginally different, but always with the ask being the more expensive of the two. The bid-ask spead is the difference in price between the two. For our purposes in this project, we will alwys assume that the ask and bid price are going to go at the same rate. The most common reason for the bid-ask spread is the human factor, being that if you buy from a broker, a part of the payment is going to go back to that stock broker. Another way the human factor changes the game of the stock market is that when the prices are changing dramatically for any certain company, they will increase the ask amount so that the market makers get a higher profit. The bid-ask spread can also be increased if the stock price is very low. The reason for this is that, if its price is low, then that probably means that not many people are buying it and it's not going to make them much profit. All of these things together can cause a pretty big bid-ask spread and because of that, we decided to not factor it in. For the sake of ease, we dedided to always assume the bid-ask spread is zero dollars, that being that the bid and the ask are of equal amount. 
+
+\subsection{Reporting Abuse}
+
+There are many algorithmic approaches to the functionality of reporting abuse. For the purpose of keeping this part of the project fairly light, we decided to make reporting abuse in a very simple manner. When someone is reported by a user, it is put on a notification list of the admins. If enough notifications are given, the status of the user's account is at the descretion of the admin. Some possible tracks an admin can take when they run into this problem would be to message the user in order to try to come to an agreement, ban the user forever or take a deduction from the account as a warning to show that they have done wrong. Our reason for this model is that rather than relying on an algorithm, it will take the pain off of us, the programmers. There are many factors in the process of creating an algorithm to deal with reported users, and leaving it up to an admin to personally solve the problem is a much simpler solution that having to deal with all the different factors that could be taking part in the process.
+
