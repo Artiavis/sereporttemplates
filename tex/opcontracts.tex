@@ -4,3 +4,94 @@
 % use cases elaborated on in Section 3c for the operations identified
 % in section 3d". 
 % So not sure what to do about this...
+
+
+\textbf{UC-1 Join or Create League}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item (join) There are open spots available in the league to be joined
+		\item (join) The league to be joined is public
+		\item (create) The desired league settings are valid
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item League creation and/or user membership are reflected in database
+		\end{itemize}
+\end{itemize}
+\textbf{UC-2 Change League Settings}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item User is league manager for the league to be changed
+		\item The desired league settings are valid
+		\item If any users are banned, there is justification
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item League setting changes are reflected in database
+		\item User status changes are reflected in database
+		\item League members are notified of all changes made
+		\end{itemize}
+\end{itemize}
+\textbf{UC-3 Browse Companies}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item Financial API is currently accepting requests
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item None
+		\end{itemize}
+\end{itemize}
+\textbf{UC-4 Place Market Order}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item Financial API is currently accepting requests
+		\item User is a member of the league in which they are placing order
+		\item User currently has enough funds or margin to place order
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item User's portfolio reflects changes made to funds, margin, and position
+		\item Database has been updated with these changes
+		\end{itemize}
+\end{itemize}
+\textbf{UC-5 View Portfolio}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item User is member of the league in which the portfolio to be viewed is
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item None
+		\end{itemize}
+\end{itemize}
+\textbf{UC-6 Access Tutorials}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item None
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item None
+		\end{itemize}
+\end{itemize}
+\textbf{UC-7 Take Disciplinary Action}
+\begin{itemize}
+	\item \emph{Preconditions}
+		\begin{itemize}
+		\item Initiating actor is a site administrator
+		\item There are outstanding abuse reports
+		\item Any actions taken against users are justified
+		\end{itemize}
+	\item \emph{Postconditions}
+		\begin{itemize}
+		\item User's status is updated in the database
+		\item User is notified of action taken against them
+		\end{itemize}
+\end{itemize}
