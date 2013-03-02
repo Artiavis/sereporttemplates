@@ -1,5 +1,9 @@
 % This file contains only the fully dressed use cases
+\label{fdress}
+\subsection{Preface}
+From our user stories, we have derived seven use cases to be fully elaborated upon. These use cases do not necessarily fully encompass all of the requirements for our application, but they touch upon the most important functionalities while also covering a breadth of different aspects. Justification for why each use case was included is written along with it. Another thing worth noting is that the browser is an actor in each of the use cases as it is the medium through which the user interacts with the system. As such, it will be included under the term "System" for the fully-dressed use cases to avoid redudancy and superfluous or wordy additions to the flow of each event. \\
 
+\subsection{Fully-Dressed Use Cases}
 Before a user can participate in most of the functionality of our site, the user must first join or create a league. To the user, creating a league is very similar to joining a league, the notable differences being that the user becomes League Manager of a league that they create and then must also invite users to join said league. Therefore, we detail 
 joining/creation as a single use case. User invitation, as a responsibility of the League Manager, will be explored in a later use case. One relevant aspect of the responsibily of a League Manager to the use case though, is whether a league is made public or private; that is, whether it shows up in a public league listing page or can only be joined by direct invitiation from the League Manager. Thus, our first use case involves a business policy: \\ \\
 \textbf{CG-BP01:} So that a user may create a join leagues with only their friends, leagues marked as private will not show up on the league listings unless a user is a current or
@@ -114,8 +118,8 @@ Core to our site is the ability of the user to have access to information about 
 Related Requirements: & ST-3, ST-4 \\ 
 Initiating Actor:     & User \\
 Actor's Goal:         & To bring up information on a desired company \\
-Participating Actors:  & Database, Financial API \\
-Preconditions:        & -Financial API is accepting inquiries \\
+Participating Actors:  & Database, Yahoo! Finance \\
+Preconditions:        & -Yahoo! Finance is accepting inquiries \\
  & -User is logged in \\
 Postconditions:       & -None worth mentioning \\
 \hline
@@ -124,7 +128,7 @@ Postconditions:       & -None worth mentioning \\
 $\rightarrow$ & 1. \textbf{User} begins entering a search term \\
 $\leftarrow$ & 2. \textbf{System} makes suggestions for companies in real-time \\
 $\rightarrow$ & 3. \textbf{User} enters search term or selects a suggestion \\
-$\leftarrow$ & 4. \textbf{System} (a) requests information from \textbf{Financial API} and (b) displays the information to the user in a clear and interactive manner \\
+$\leftarrow$ & 4. \textbf{System} (a) requests information from \textbf{Yahoo! Finance} and (b) displays the information to the user in a clear and interactive manner \\
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Extensions (Alternate Scenarios):} \\
 \hline
@@ -139,7 +143,7 @@ $\leftarrow$ & 1.  System informs user company does not exist and offers similar
 \end{longtable}
 \end{centering}
 
-Note that the exact way in which the information requested from the Financial API is displayed to the user is not specified in this use case. This will be described instead in later sections about on-screen appearance requirements as to try to separate the functionality of the site and design of the site as separate as possible. \\
+Note that the exact way in which the information requested from the Yahoo! Finance is displayed to the user is not specified in this use case. This will be described instead in later sections about on-screen appearance requirements as to try to separate the functionality of the site and design of the site as separate as possible. \\
 
 The goal of browsing companies ultimately is for the user to gain the knowledge needed to place market orders. Market orders are the atomic action of our site; i.e. the center point of every league is the user's ability to initiate transactions in an attempt to invest their money as best they can. \\
 
@@ -156,8 +160,8 @@ The goal of browsing companies ultimately is for the user to gain the knowledge 
 Related Requirements: & ST-5 \\ 
 Initiating Actor:     & User \\
 Actor's Goal:         & To place a market, stop, or limit order \\
-Participating Actors:  & Database, Financial API \\
-Preconditions:        & -Financial API is accepting inquiries \\
+Participating Actors:  & Database, Yahoo! Finance \\
+Preconditions:        & -Yahoo! Finance is accepting inquiries \\
  & -User is logged in \\
  & -User is a member of a league \\
 Postconditions:       & -\textbf{User}'s portfolio is updated to reflect change in position \\
@@ -167,7 +171,7 @@ Postconditions:       & -\textbf{User}'s portfolio is updated to reflect change 
 $\rightarrow$ & 1. \textbf{User} selects the league in which they would like to place the order \\
 $\leftarrow$ & 2. \textbf{System} displays prompt for market order, including type, amount, and company \\
 $\rightarrow$ & 3. \textbf{User} fills out form and requests the order be placed \\
-$\leftarrow$ & 4. \textbf{System} (a) requests market price from \textbf{Financial API} and (b) places the order into the \textbf{Database} \\
+$\leftarrow$ & 4. \textbf{System} (a) requests market price from \textbf{Yahoo! Finance} and (b) places the order into the \textbf{Database} \\
 $\leftarrow$ & 5. The order either resolves or expires, and the \textbf{System} updates the \textbf{User}'s position in the \textbf{Database} accordingly \\
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Extensions (Alternate Scenarios):} \\
@@ -181,7 +185,7 @@ $\rightarrow$ & 3. Go to Step 3 above \\
 \hline
 \multicolumn{2}{|p{6.2in}|}{4a. The \textbf{User} does not have enough money or margin to place the order} \\
 \hline
-$\leftarrow$ & 1. The \textbf{System} informs the \textbf{User} that they do not have enough money or margin to place the order and returns them to the market order prompt \\
+$\leftarrow$ & 1. \textbf{System} informs the \textbf{User} that they do not have enough money or margin to place the order and returns them to the market order prompt \\
 \hline 
 \end{longtable}
 \end{centering}
@@ -218,9 +222,9 @@ $\leftarrow$ & 2. \textbf{System} requests that member's information from the \t
 \hline
 \multicolumn{2}{|c|}{\color{color1}Flow of Events for Extensions (Alternate Scenarios):} \\
 \hline
-\multicolumn{2}{|p{6.2in}|}{2a. The \textbf{User} is viewing their own portfolio} \\
+\multicolumn{2}{|p{6.2in}|}{2a. \textbf{User} is viewing their own portfolio} \\
 \hline
-$\leftarrow$ & 1.  The \textbf{System} gives the \textbf{System} options to place market orders related to their existing positions \\
+$\leftarrow$ & 1. \textbf{System} gives the \textbf{User} options to place market orders related to their existing positions \\
 \hline
 \end{longtable}
 \end{centering}
@@ -286,6 +290,7 @@ $\rightarrow$ & 1. \textbf{Site Administrator} selects the site administration p
 $\leftarrow$ & 2. \textbf{System} makes a request to the \textbf{Database} and displays all outstanding abuse reports\\
 $\rightarrow$ & 3. \textbf{Site Administrator} (a) selects an abuse report, (b) reviews the report, and (c) selects what action is to be taken (if any)\\
 $\leftarrow$ & 4. \textbf{System} implements the action selected by the \textbf{Site Administrator} and updates the \textbf{Database} accordingly \\
+$\leftarrow$ & 5. \textbf{System} notifies the offending \textbf{User} of any actions taken against them \\
 \hline
 \end{longtable}
 \end{centering}

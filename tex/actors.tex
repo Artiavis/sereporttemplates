@@ -1,9 +1,3 @@
-\subsection{Guest}
-An unregistered visitor or a visitor who is not logged in.
-\begin{itemize}
-\item[--] Create an account
-\item[--] View top users and stocks
-\end{itemize}
 \subsection{User}
 A visitor who has registered and logged in to an account.
 \begin{itemize}
@@ -25,13 +19,19 @@ A user who can control key aspects of the site
 \item[--] View statistics of site
 \end{itemize}
 \subsection{Database}
-The unit that holds information about all users' data.
+The unit that holds all site-relevant data
 \begin{itemize}
 \item[--] Push data back to views about users/events
 \item[--] Store new data about about users/events
 \end{itemize}
-\subsection{Financial API}
-The unit that knows about current financial 
+\subsection{Browser}
+The middleman between user and system
+\begin{itemize}
+\item[--] Present data to the user
+\item[--] Retrieve data from the user
+\end{itemize}
+\subsection{Yahoo! Finance}
+The unit that knows about current financial statistics
 \begin{itemize}
 \item[--] Retrieve data about stocks
 \end{itemize}
