@@ -23,9 +23,13 @@ A challenge often encountered when using databases in an application is
 the translation of database-native datatypes to the more varied datatypes
 employed by dynamic applications. \cite{wiki:orm} To simplify this,
 Capital Games uses the ActiveRecord object-relational mapper to abstract
-the logic between the database and the system as a whole. Only priviliged portions
+the logic between the database and the system as a whole. Only privileged portions
 of the system have access to the database. This maintains the safety of the
-data while also allowing it to be manipulated more precisely.
+data while also allowing it to be manipulated more precisely. Per the convention
+of MVC-style application style architecture 
+% insert reference here for later chapter
+(upon which we base our application, described in more detail later), these 
+are known as the Models.
 
 \subsection{Finance API Adaptor}
 The data for the application comes from a third party source, Yahoo! Inc. Yahoo!
@@ -42,7 +46,7 @@ invoke the Finance Adaptor subsystem, which in turn queries Yahoo!. This
 modularity enables multiple subsystems of the application to have access to live data
 when necessary.
 
-\subsection{Asynchronous Task System}
+\subsection{Queueing (Asynchronous Task) System}
 
 Fundamentally, Capital Games is about placing trading orders for various stocks. 
 Though the simplest type, market orders, are executed almost immediately after being 
@@ -51,7 +55,7 @@ placed, stop and limit orders may not be executed for quite some time. \cite{inv
 at some undetermined time after the order is placed. 
 Upon further inspection, a few other functions of the site depend on a similar capability.
 In order to update the user portfolio database regularly or send out newsletters, the system 
-must be able to asynchronously execute certain tasks. Enter a queueing system.
+must be able to asynchronously execute certain tasks. Enter a Queueing System.
 
 Whenever a task needs to be performed asynchronously, the task is entered into a 
 designated portion of a Redis database, configured as a queue. Background "workers" 
@@ -66,13 +70,13 @@ are delivered to a subsystem which dynamically generates the content
 which are served up to the end-user. The Views Generator contains various modules which
 simplify translating the data to web-standard HTML and Javascript.
 
-\begin{figure}
-\centering
-\includegraphics[width=6.5in]{./img/domainModel2.pdf}
-\caption{This high-level overview of the domain model of our application shows the 
-separation between the external actors User, Browser, and Yahoo! Finance, as well as
-how the internal component subsystems relate to each other.}
-\end{figure}
+\subsection{Mailer System}
+
+Capital Games is designed to periodically alert users as to their portfolio performance.
+This is performed by the Queueing System in conjunction with the Mailer system.
+The framework we employ natively contains a robust mailing system called Action Mailer,
+which generates content dynamically at runtime. \cite{action:mailer} This allows us to perform calculations
+on leagues and then include that into emails, in addition to raw data.
 
 %\begin{itemize}
 %\item \textbf{Users}: Every end-user of the application needs both a private and
@@ -139,6 +143,38 @@ how the internal component subsystems relate to each other.}
 %
 %% Association definitions between actors
 \section{Association Definitions}
+
+As indicated in Figure~\ref{domainModel2}, there are 6 components which are core
+to our system: Controller, Views, Models, Finance Adaptor, Queueing System, and
+Mailer.
+
+The Controller acts as the single point-of-entry for all user interactions. It
+interpretes requests and accordingly accesses the Models, the Finance Adaptor,
+and the Queueing System, before delivering the necessary data to the Views
+Generator. By definition, the Controller is the most prviliged system component.
+
+The Queueing System is possibly more privileged than the Controller. It has a great deal
+of autonomy, functioning without the Controller and being able to invoke other systems
+on its own. Compare this to the Controller, which is only invoked upon requests from
+a user. The Queueing System communicates with Models, the Finance Adaptor, and the 
+Mailer as necessary to perform its tasks.
+
+Conversely, the Views Generator is the least privileged subsystem. It cannot
+externally communicate and only responds to to the actor which called it.
+
+The Finance Adaptor, Mailer, and Models are each afforded limited privileges, in that the
+Models and Mailer need to communicate with the database and Views, respectively, 
+while the Finance Adaptor needs to communicate with external data sources through the Internet.
+They each respond directly to requests from the componenets which invoke them.
+
+\begin{figure}
+\centering
+\label{domainModel2}
+\includegraphics[width=6.5in]{./img/domainModel2.pdf}
+\caption{This high-level overview of the domain model of our application shows the 
+separation between the external actors User, Browser, and Yahoo! Finance, as well as
+how the internal component subsystems relate to each other.}
+\end{figure}
 %
 %% brief discussion of how the parts relate to each other
 %Clearly, many of these models are interrelated. Below is a non-comprehensive
@@ -211,15 +247,77 @@ how the internal component subsystems relate to each other.}
 %\end{itemize}
 %
 
+% Attribute definitions
+\section{Attribute Definitions}
+
+Though the application is a whole is not entirely object-oriented,
+and thus not all parts (ie the Controller) have true attributes,
+the Models, Queueing System, and Financial Adaptor all do. 
+
+Models possess basic attributes for the data they contain, such
+as user names, email addresses, stocks possessed, etc. These are
+contained in Figure~\ref{domainModel}.  Similarly, Orders to
+be performed in the Queue have similar identifiers, as shown in 
+Figure~\ref{queuestruct}.
+
+Validation on the data saved by the Models layer is performed 
+automatically by the object-relational mapper, which can enforce
+data typing rules built into the database. This happens automatically.
+
+Orders data is proxied through the database, and so its data is also
+validated before being entered. Though a remote edge case is the 
+possibility of an order being valid while placed but being invalidated
+(for example by a stock no longer being on the market) while in the
+queue, we do not consider it at this time.
+
+The Queueing System utilizes entities called ``background workers''.
+As the name implies, these are persistent entities which wait
+for work in the form of queued tasks to hit the Redis database. When
+this happens, the first available worker pulls the task from the queue.
+
+The Financial Adaptor possesses a set of financial metrics, a brief
+list of which is tabulated in Table~\ref{financeparams}. When
+data is retrieved by the adaptor, it is tabulated with some of the
+parameters shown in the table. 
+
+
 \begin{figure}
-\section{Domain Model}
+\label{domainModel}
 \centering
 \includegraphics[width=6.5in]{./img/domainModel.pdf}
 \caption{This diagram indicates the relationships between the data present in the database.}
 \end{figure}
+
+\begin{figure}
+\label{queuestruct}
+\centering
+\includegraphics[width=6.5in]{./Diagrams/ComponentModels/BackgroundProcessStructuralModel.pdf}
+\caption{The structural model of the Resque Queueing System. Market Orders to be placed are 
+bundled as Orders and served to the queue to be processed every few minutes. Newsletters are 
+performed daily and bundled and served every night. Background workers wait for updates to
+the Redis database and upon seeing a valid task, pull it and begin processing.}
+\end{figure}
+
+\begin{table}
+\label{financeparams}
+\centering
+\renewcommand\arraystretch{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Ticker & Name & Date & Time \\
+\hline
+Change \% & Previous Close & Open & Volume \\
+\hline
+Day High & Day Low & Day Range & Ticker Trend \\
+\hline
+Bid & Ask & Average Daily Volume & Price-to-Earnings Ratio \\
+\hline
+\end{tabular}
+\caption{These are some of the data that Yahoo! Finance provides upon request, and which the adaptor we employ
+can convert.}
+\end{table}
 %
-% Attribute definitions
-\section{Attribute Definitions}
+
 %
 %It is clear from the domain model abstraction above that the Database Layer
 %models have many noteworthy attributes, and are heavily state-based. However,
