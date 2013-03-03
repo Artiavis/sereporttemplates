@@ -1,9 +1,9 @@
 \section{Nonfunctional Requirements}
 
 \subsection{Functional}
-Additional features for security could be enabled through the use of gems in Ruby on Rails. There exists several packages for the purpose of authentication and authorization of applications. 
-Devise is a Rails gem that provides solutions for authentication. Some key features to this gem are the the ability to encrypt and store passwords, provide recovery options for users that have forgotten their password and store a cookie to validate the session. 
-Cancan is a Rails gem that provides solutions for authorization. This will allow for a user to perform different actions based on their position. For example, a user will be able to comment and delete their own comment, but an admin will be able to comment and delete all comments on the league they are an admin of.
+Additional features for security could be enabled through the use of various third-party plugins. There exists several packages for the purpose of authentication and authorization of applications. 
+Key authentication features to are the the ability to encrypt and store passwords, provide recovery options for users that have forgotten their password and store a cookie to validate the session. 
+Other plugins may provide authorization features. These will allow for a user to perform different actions based on their position. For example, a user will be able to comment and delete their own comment, but an admin will be able to comment and delete all comments on the league they are an admin of.
 
 
 \subsection{Usability}
@@ -15,11 +15,11 @@ In order to ensure that there is no confusion to the user in the case of the int
 
 
 \subsection{Performance}
-The performance of the site is mostly maintained by the Rails framework. To moniter performance from the application, the Rails Performance Management tool is availible to measure speeds and help find problem areas.
+The performance of the site is mostly maintained by an appropriate technology stack consisting of a web framework, database, web server, and assets server. Performance management tools are built into the server for maintenance by application developers (not necessarily site administrators).
 
 
 \subsection{Supportability}
-Ruby on Rails provides measures for supportability. Rspec, Capybara and Cucumber are Rails gems that provide for testing that can be very similar to writing use cases. With these tools, the process of test driven development can be facilitated. 
+Various measures and plugins exist for supportability. Between a combination of plugins enabling test-driven and behavior-driven development, supporting and modifying should be relatively painless.
 The project should be highly portable in the sense that a user will be able to access the website on all major browsers and mobile devices, and have a specilized appearance for both. 
 For maintainability, there is the option of a user to be a site admin. These users can view details about the entire site, such as activity and user feedback. 
-In order to spread the application beyond the bounds of the english speaking world, the Rails l18n API provides framework for translating to provide multi-language support.
+There also exists an internationalization framework for translating to provide multi-language support.
