@@ -13,10 +13,16 @@ One consideration we need to take from our end for the building of our financial
 Once user queries are validated by our financial adaptor module, our financial adaptor module will then parse the user query into a URL format that will allow for the retrieval of data via {\textit{\textbf{Yahoo! Finance}}}. Upon completing this, the URL will then be passed through our financial adaptor to {\textit{\textbf{Yahoo! Finance}}}, from which data will be returned to our financial adaptor module via a comma-separated values format (.csv, a container for easily passing volumes of data), which our financial adaptor will then translate into an arrangement that our views can utilize to deliver to the content to the webpage the user made the query from.  From there, the user can then view the data and choose whether they would like to interact with the queried stock within Capital Games.
 
 To elaborate on the technical specifications of our financial adaptor, the rest of this section will incorporate and explain interaction diagrams of methods used by our financial adaptor, illustrating the process I summarized regarding how our financial adaptor will go through interacting with {\textit{\textbf{Yahoo! Finance}}}, {\textit{EODData}}, and the Capital Games platform.
+\\*
+\\*
+\\*
+\\*
+{\textbf{All interaction diagrams will begin in the following page.}}
+\newpage
 
-\subsection{Financial Adaptor Interaction Diagrams}
 
 \begin{figure}
+\subsection{Financial Adaptor Interaction Diagrams}
 \centering
 \includegraphics[width=5.5in]{./Diagrams/InteractionDiagrams/buyingstock.png}
 \caption{When a user buys a stock, the browser will inform the system of the transaction so that it can be approved. The system passes over the process to the finance adaptor who will check the current price from Yahoo! Finance, check if the company is accepting trades from the database, and check if the user is able to afford the purchase from the database. If all goes well, the transaction will be recorded in the database and the balance will be changed. After all that is complete, the transaction will marked as a success and the system will be notified.}
