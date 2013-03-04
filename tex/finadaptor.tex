@@ -25,7 +25,7 @@ To elaborate on the technical specifications of our financial adaptor, the rest 
 \subsection{Financial Adaptor Interaction Diagrams}
 \centering
 \includegraphics[width=5.5in]{./Diagrams/InteractionDiagrams/buyingstock.png}
-\caption{When a user buys a stock, the browser will inform the system of the transaction so that it can be approved. The system passes over the process to the finance adaptor who will check the current price from Yahoo! Finance, check if the company is accepting trades from the database, and check if the user is able to afford the purchase from the database. If all goes well, the transaction will be recorded in the database and the balance will be changed. After all that is complete, the transaction will marked as a success and the system will be notified.}
+\caption{When a user buys a stock, the browser will inform the system of the transaction so that it can be approved. The system passes over the process to the finance adaptor who will check if the company is accepting trades, the current price from Yahoo! Finance, and if the user is able to afford the purchase from the database. If all goes well, the transaction will be recorded in the database and the balance will be changed. After all that is complete, the transaction will marked as a success and the system will be notified.}
 \end{figure}
 
 \begin{figure}
