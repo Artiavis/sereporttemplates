@@ -5,6 +5,9 @@
 % and introducing the types of diagrams
 % that will be shown.
 
+\section{Introduction}
+Following is an analysis of the interactions of the two most important internal subsystems in our system as identified in our domain model, the financial data retrieval subsystem and the asynchronous processing subsystem. The interaction diagrams included clearly describe the interactions that occur within each of these subsystems. They elaborate upon the mechanics behind our use cases, but do not necessarily correspond to them one-to-one. This is because several of our use cases are completely facilitated through the browser and controller to generate views for the users, and as such it would not be interesting or worthwhile to explore the internal interactions. The following analysis clearly describes how market orders are placed and processes, how information is retrieved from Yahoo! Finance, and how we manage asynchronous processes (i.e. a queue) in order to process market orders and enact our mailer system.
+ 
 \input{./tex/finadaptor}
 \clearpage
 \input{./tex/queue}
