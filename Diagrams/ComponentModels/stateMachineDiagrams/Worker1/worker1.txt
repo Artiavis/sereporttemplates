@@ -5,13 +5,12 @@ alt if(state == initialize)
     Worker->Worker: state = waiting
 else if(state == working)
     Worker->Queue: dequeue()
-    Queue-->Worker: recieve task
-    Worker->Worker: task.preform()
+    Queue-->Worker: receive task
+    Worker->Worker: task.perform()
     alt if queue is empty
         Worker->Worker:state = waiting
     end
 else if(state == waiting)
-    Worker->Worker:sleep()
     alt if waited for 5+ minutes
         Worker->Worker:state = working
     end
