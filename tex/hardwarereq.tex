@@ -1,0 +1,57 @@
+\section{Hardware Requirements}
+
+The hardware requirements for Capital Games are minimal
+on the client side, and moderate on the server side.
+
+\subsection{Internet Connection}
+
+The server needs to have an internet connection. Because
+all data are transmitted as text, it is technically possible
+for the server to function on even a low-bandwidth connection.
+Obviously this is not ideal and low bandwidth can increase
+server latency during peak use hours. 
+
+\subsection{Disk Space}
+
+Under the current configuration, Capital Games does not commit
+any additional resources to the server's disk storage during
+runtime. Rather, all data are stored to memory, and only
+backed up to the disk. Therefore, the disk requirements for
+Capital Games is simply the sum of the storage occupied by
+all program instructions for the system, or approximately
+1GB at the time of this writing.
+
+\subsection{System Memory}
+
+Because all runtime data are stored to the server's memory, as
+well as the space in memory occupied by the actual system
+runtime, having a large amount of ``headroom'' is vital to the
+performance of the application. Although it is hard to
+analyze performance requirements of an application that is
+still in active development, empirical evidence from users of
+similar technology make a few key observations. First, the
+amount of memory consumed by an idle application can work
+out to be over 100MB. Next, the active application will load
+copies of its database-stored information into memory in order
+to operate over it, which can result in large spikes in memory
+usage. Finally, operating over the loaded data itself can 
+consume a large amount of memory. This is in addition to any
+memory occupied by the databases and worker processes. \cite{so:railsmem}
+Therefore, having at least 200MB should be the minimum required
+for internal testing of our application. Obviously, increasing
+user base will exponentially increase the memory requirements
+of our application.
+
+\subsection{Client-side Hardware Requirements}
+
+The user needs to have an internet connection in order
+to interact with the server remotely. Although the intended
+use of the system entailing the use of a graphical web browser
+strongly encourages the use of a monitor (as mentioned
+previously, the responsive nature of the application means
+that screen resolution is not a limiting factor), it is also
+possible for technically proficient users to interact with the
+server through its RESTful resources. At some future date,
+we may publish the official RESTful API for Capital Games, but
+at this point, interacting purely through a command line
+interface is discouraged.
