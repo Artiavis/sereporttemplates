@@ -1,0 +1,20 @@
+\section{Global Control Flow}
+\subsection{Execution Order}
+In general, our system is event-driven in terms of execution. As far as the user is concerned, our server sits and waits for a request to be made by a user accessing some part of our website. Though this is a simplification of the actual model, it is a good description of the general order of events within our system. The users can, nearly in any order, access different parts of our websites, search different companies, place different orders, etc., at their will. Any of these actions generate a request to our server, which then creates the necessary views, enacts the necessary computations, and takes any other necessary actions to facilitate the request. \\
+
+To some degree, however, there are some procedures that drive our system as well, which force users to experience certain things in a predefined order. I will identify a few of these procedures hence:
+\begin{itemize}
+\item[--]{Registration: Before any user can begin browsing our site and joining leagues, they need to make an account.}
+\item[--]{Order placement: Before a user can place an order, they need to join a league.}
+\item[--]{Tutorials: When a tutorial is initiated, each user will experience the tutorial in the same order as all other users, excepting them terminating the tutorial prematurely.}
+\end{itemize}
+However, on the whole, our system is still definitively an event-driven one.
+\subsection{Time Dependency}
+Real-time is very important to our system, though it does not entirely define it. While the user browsing our website is a real-time experience, there are a lot of back-end computation and processing that occur on our server based on real-time timers. In addition, as our system is strongly reliant on the stock market, which has certain times of operation, real-time matters quite a bit. I shall identify the timers present in our system:
+\begin{itemize}
+\item[--]{E-mail Timer: Based on the user's set preferences, they can receive periodic e-mails from our system describing their portfolios' progress over the last period, which can be set to daily or weekly.}
+\item[--]{Market Open and Close: The stock market is only open and closed during certain times of the day, so our system must rely on these times to limit the placement of orders by users.}
+\item[--]{Resque Process Check: As described earlier in our report, many of our system's tasks are carried out by a queueing subsystem. In short periods, this queueing process must check if there are any outstanding tasks to operate upon. The period is as yet defined, but will be chosen for a balance between ensuring quick execution and reasonable server load.}
+\end{itemize}
+\subsection{Concurrency}
+There is a bit of concurrency within our system. Outside the main stream of execution with potentially parallel gets and posts from users' browsers, this concurrency occurs mostly within the queueing system earlier mentioned. It is relativey simple; there are persistent processes that handle order processing and e-mail updates. As these are entirely separate functions, there is no need for synchronization between these two threads of control. Synchronization between these threads and the rest of our system (i.e. the user interactions with the browser and the browser's interactions with the controller) to ensure that no data is being altered by separate entities at the same time is enacting through Ruby's including protection functions--mainly flock (file lock).
