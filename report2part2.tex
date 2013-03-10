@@ -1,0 +1,34 @@
+% Report 2 Template
+% Team 2
+% All rights reserved
+
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+%\usepackage{hyperref}
+
+% Include Title page
+\include{./tex/title4}
+
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+%\pagebreak  % flush the next page
+\tableofcontents % create TOC
+
+% Chapter 8
+% Class Diagrams and interface Specification
+\include{./tex/classdiagram}
+
+% Chapter 9
+% System Architecture and System Design
+\include{./tex/sysarch}
+
+%Chapter 10
+% Project Management
+% This includes coordination, how the team divided up work, etc..
+% \include{./tex/management}
+
+% References
+\bibliography{citations}
+
+\end{document}
