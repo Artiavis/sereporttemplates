@@ -1,0 +1,79 @@
+\section{Architectural Styles}
+
+Capital Games was designed to conform with several well-established
+softare design principles. 
+Some were chosen because of the software technologies
+employed (ie an MVC-based web framework), others 
+represent a natural evolution of the needs of the 
+system. 
+
+\subsection{Model-View-Controller}
+
+Our philosophy in designing our website is to maintain
+a separation between the subsystems responsible for 
+maintaining user information and those responsible
+for presenting it, in comformation with modern software
+engineering practice. 
+
+Therefore, we employ the Model-View-Controller (MVC)
+architecture pattern. In MVC, a View requests from the
+model the information it needs to generate an output;
+the Model contains user information; and the Controller
+can send commands to both the views and the models. \cite{wiki:mvc} 
+
+This approach has made site design easier,
+by abstracting the interface specifications from the 
+system responsibilities. The Views and Models each know 
+only what they need, while the Controller and associated
+subsystems perform all the ``business logic''. The only
+complexity added by the decision to employ MVC is that
+updates to system components often have a ripple effect
+and require numerous modifications elsewhere in the system.
+
+\subsection{Representational State Transfer}
+
+As a well-designed web application, Capital Games 
+conforms with the universal practice of employing
+RESTful design principles. RESTful design dictates,
+amongst other constraints, that a platform have a
+client-server relationship with the user (see below),
+that the interface is uniform, and that all information
+necessary for a request can be understood from the
+request sent to the server. \cite{wiki:restful} 
+
+We strive to keep the interface as uniform as possible
+so that it is clear to the user how he is interacting
+with Capital Games, on a multitude of levels. For example,
+when purchasing a group of stocks, a user may graphically
+``click on'' a submit button for a certain order, but
+in effect he is also submitting an HTTP POST request with
+appropriate form data to the Orders resource. 
+
+This identificaiton of resources creates a tradeoff. On
+the one hand, all RESTful architecture must be designed
+at once, so that all resources are identified simultaneously,
+and the state transfers are possible to each of them. On
+the other hand, once resources are properly identified, the
+distribution of responsibilities is trivial for every possible
+interaction.
+
+\subsection{Data-centric}
+
+As a financial trading platform, Capital Games revolves
+around user data. To simplify access to that information
+from a variety of systems and to organize the data coherently
+and with the possibility of rapid retrieval, we eventually store all user data in a relational database. In this way,
+advanced queries can be performed on sets of data, both in 
+application layer logic as well as by database administrators.
+Additionally, storing user data outside of a particular
+program's memory space enables subsystems which exist outside
+of the current application layer to also have access to the
+data. This additionally presents greater flexibility in terms
+of scaling site infrastructure.
+
+
+\subsection{Client-Server}
+
+By its definition as a web application, Capital Games follows a client-server
+model. The client, a user, interacts with the server, 
+the various systems encapsulated by Capital Games.
