@@ -1,0 +1,86 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{lof}{\addvspace {10pt}}
+\@writefile{lot}{\addvspace {10pt}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {1}System Interaction Diagrams}{3}{chapter.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Introduction}{3}{section.1.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Financial Data Retrieval Subsystem}{3}{section.1.2}}
+\@writefile{toc}{\contentsline {subsection}{Enter the Capital Games Financial Adaptor}{3}{subsection*.2}}
+\@writefile{toc}{\contentsline {subsection}{Financial Adaptor Interaction Diagrams}{5}{subsection*.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces When a user buys a stock, the browser will inform the system of the transaction so that it can be approved. The system passes over the process to the finance adaptor who will check if the company is accepting trades, the current price from Yahoo! Finance, and if the user is able to afford the purchase from the database. If all goes well, the transaction will be recorded in the database and the balance will be changed. After all that is complete, the transaction will marked as a success and the system will be notified. (Related use case: UC-4)}}{5}{figure.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces When a user wants to view a company page, the company data must be loaded from our finance API. Once the process is passed to the finance adaptor, the quotes and the historical quotes will be pulled from Yahoo! Finance and brought back to the system, who will prepare the page for the user. This is also the process by which user portfolios will be generated, via aggregating the value of all their stocks. (Related use cases: UC-3, UC-5}}{6}{figure.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces We need to keep a local copy of the current companies in our database so we can do rapid processes sing of all of the companies. In order to do this, there will be a timer that is set to update the database every once in a while. When the timer goes off, the system will pass the process onto the finance adaptor. The finance adaptor will then call data from EODData, who knows all of the current companies in the stock market. The finance adaptor will then scan the data for any new/deleted companies and change the database accordingly. After this is complete, the timer will start again so this process can loop.}}{7}{figure.1.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Asynchronous Processing Subsystem}{8}{section.1.3}}
+\@writefile{toc}{\contentsline {subsection}{Introduction}{8}{subsection*.4}}
+\@writefile{toc}{\contentsline {subsection}{Nature of the Subsystem}{8}{subsection*.5}}
+\@writefile{toc}{\contentsline {subsection}{Structural Model}{9}{subsection*.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces The structural model depicts the overall structure of this subsystem. Namely, the Resque Library and two packages or modules which each are responsible for one kind of task. On the left, the orders package displays a relevant subset of all classes that pertain to placing and processing orders. As previously mentioned, the Order object itself implements the perform method. Therefore, it knows how to process its data when it get gets placed in worker 1's queue. While the OrderHandler class isn't directly involved in the asynchronous processing of orders, it is still relevant in this scope and therefore included in the diagram. It is ultimately the class responsible for placing the order object on the queue when an order is placed. Similarly, the mailer package is depicted with a subset of classes which aggregate data about user performance and send out periodic summarizations of performance metrics to all users on the site. Worker 2 is dedicated to processing email related tasks daily. In this case, the architecture is slightly different as the worker doesn't directly call perform on each ActionMailer object, but instead on a NewsletterController which populates the worker's queue with customized ActionMailer Objects.}}{10}{figure.1.4}}
+\@writefile{toc}{\contentsline {subsection}{Interaction Diagrams}{11}{subsection*.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The interaction diagram above is roughly divided into two areas, when the process is working and when it is sleeping. This portrays the typical polling behavior of such a background running process. After initialization, when the worker wakes up it attempts to dequeue all objects and call the "perform" method on the object. Since the actual nature of the "perform" method is unique to every object, it is not depicted in this diagram. It is relevant to mention that this individualized execution design allows conditional orders to be processed very easily since the object has all the information needed to make the decision of whether to process at its disposal. Once the queue becomes empty again, the process goes back to sleep. This occurs continually after the spawning of the process.}}{12}{figure.1.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces Worker 2 behaves a bit differently than worker 1 which results in having an additional state. This "prepare" state is when all the customizing of user-specific emails is done. Afterwards, the process enters the working state where it attempts to fire off all customized emails which were placed onto the queue during the "prepare" state. As in the previous diagram, the diagram incorporates the base case when the worker's queue has been emptied and when the process is sleeping.}}{13}{figure.1.6}}
+\@setckpt{./tex/interactiondiagrams}{
+\setcounter{page}{14}
+\setcounter{equation}{0}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{@memmarkcntra}{-1}
+\setcounter{storedpagenumber}{1}
+\setcounter{book}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{1}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{@ppsavesec}{0}
+\setcounter{@ppsaveapp}{0}
+\setcounter{vslineno}{0}
+\setcounter{poemline}{0}
+\setcounter{modulo@vs}{0}
+\setcounter{memfvsline}{0}
+\setcounter{verse}{0}
+\setcounter{chrsinstr}{0}
+\setcounter{poem}{0}
+\setcounter{newflo@tctr}{4}
+\setcounter{@contsubnum}{0}
+\setcounter{maxsecnumdepth}{1}
+\setcounter{sidefootnote}{0}
+\setcounter{pagenote}{0}
+\setcounter{pagenoteshadow}{0}
+\setcounter{memfbvline}{0}
+\setcounter{bvlinectr}{0}
+\setcounter{cp@cntr}{0}
+\setcounter{ism@mctr}{0}
+\setcounter{xsm@mctr}{0}
+\setcounter{csm@mctr}{0}
+\setcounter{ksm@mctr}{0}
+\setcounter{xksm@mctr}{0}
+\setcounter{cksm@mctr}{0}
+\setcounter{msm@mctr}{0}
+\setcounter{xmsm@mctr}{0}
+\setcounter{cmsm@mctr}{0}
+\setcounter{bsm@mctr}{0}
+\setcounter{workm@mctr}{0}
+\setcounter{sheetsequence}{14}
+\setcounter{lastsheet}{17}
+\setcounter{lastpage}{17}
+\setcounter{figure}{6}
+\setcounter{lofdepth}{1}
+\setcounter{table}{0}
+\setcounter{lotdepth}{1}
+\setcounter{lips@count}{0}
+\setcounter{lstnumber}{1}
+\setcounter{Item}{0}
+\setcounter{Hfootnote}{0}
+\setcounter{memhycontfloat}{0}
+\setcounter{bookmark@seq@number}{5}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{lstlisting}{0}
+\setcounter{section@level}{0}
+}
