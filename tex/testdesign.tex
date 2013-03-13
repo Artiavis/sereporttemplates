@@ -1,0 +1,55 @@
+\chapter{Design of Tests}
+
+% Describe the way we plan on performing our
+% tests and why it'll kick everyone's asses
+No application is complete until it has been tested
+as thoroughly as possible for security holes, broken
+functionality, and any other lacking features.
+Shipping without testing is a guarantee to have
+all manner of bugs and security holes. However, even
+with thorough testing, it is not usually possible to
+find and resolve every flaw before shipment. To this end,
+developers utilize \emph{testing suites} to try and
+test programs efficiently and effectively. Tests can be
+designed for individual units and components as well as
+the broader system and the integration of the units.
+While not perfect for finding all flaws in a program
+(usually errors are discovered by looking
+for them, which generally requires either knowledge of an
+existing error or ``luck'' in an error making itself
+apparent during development), testing can serve to find
+almost all errors and flaws in an application.
+
+However, developers face a dilemma. Developing an
+evolving application can cause existing tests to
+become outdated, while designing and running tests
+is time taken away from actually building the application.
+
+A modern approach to this tradeoff is to build the
+feature set of an application around measurable,
+predefined tests. \cite{wiki:tdd} In this technique,
+known as Test-driven Development, developers iteratively
+define tests for intended future features, confirm that those
+features are not yet implemented (by running those tests),
+and then implementing the solutions. Though this approach
+does not (generally) test for all possible interplay
+between components, it is usually employed in high-paced
+development environments such as ours, where the coverage provided is
+usually respectable enough to prevent most problems.
+
+Accordingly, we first define the features and tests we
+plan on developing around, proceed to analyze the coverage
+offered by these tests, and then briefly discuss how we
+intend to test the integration of the components.
+
+% list and describe the test cases that will
+% be programmed and used for unit testing
+\section{Test Cases}
+
+
+
+% Describe the test coverage
+\section{Test Coverage}
+
+% Describe integration testing strategy
+\section{Integration Testing}

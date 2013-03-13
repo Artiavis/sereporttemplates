@@ -21,20 +21,20 @@ To elaborate on the technical specifications of our financial adaptor, the rest 
 \newpage
 
 
-\begin{figure}
+\begin{figure}[!h]
 \subsection{Financial Adaptor Interaction Diagrams}
 \centering
 \includegraphics[width=5.5in]{./Diagrams/InteractionDiagrams/buyingstock.png}
 \caption{When a user buys a stock, the browser will inform the system of the transaction so that it can be approved. The system passes over the process to the finance adaptor who will check if the company is accepting trades, the current price from Yahoo! Finance, and if the user is able to afford the purchase from the database. If all goes well, the transaction will be recorded in the database and the balance will be changed. After all that is complete, the transaction will marked as a success and the system will be notified. (Related use case: UC-4)}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \includegraphics[width=5.5in]{./Diagrams/InteractionDiagrams/rendercompanypage.png}
 \caption{When a user wants to view a company page, the company data must be loaded from our finance API. Once the process is passed to the finance adaptor, the quotes and the historical quotes will be pulled from Yahoo! Finance and brought back to the system, who will prepare the page for the user. This is also the process by which user portfolios will be generated, via aggregating the value of all their stocks. (Related use cases: UC-3, UC-5}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
 \centering
 \includegraphics[width=5.5in]{./Diagrams/InteractionDiagrams/updatingdatabase.png}
 \caption{We need to keep a local copy of the current companies in our database so we can do rapid processes sing of all of the companies. In order to do this, there will be a timer that is set to update the database every once in a while. When the timer goes off, the system will pass the process onto the finance adaptor. The finance adaptor will then call data from EODData, who knows all of the current companies in the stock market. The finance adaptor will then scan the data for any new/deleted companies and change the database accordingly. After this is complete, the timer will start again so this process can loop.}
