@@ -2,6 +2,7 @@
 
 % Describe the way we plan on performing our
 % tests and why it'll kick everyone's asses
+% --------- No pseudocode needed -----------
 No application is complete until it has been tested
 as thoroughly as possible for security holes, broken
 functionality, and any other lacking features.
@@ -46,7 +47,50 @@ intend to test the integration of the components.
 % be programmed and used for unit testing
 \section{Test Cases}
 
+Due to project constraints, we cannot afford to thoroughly
+test existing packages for functionality we incorporated to
+streamline the design process. These packages include Ruby
+on Rails
+as well as Ruby gems (packages) for interfacing with Yahoo! Finance,
+various databases (ie MySQL, SQLite), the Resque queueing system,
+and other auxilliary package for Rails. Likewise, we
+cannot unit test
+the HTTP server we are using (Apache) and its Ruby 
+extension (Phusion Passenger) or any of the databases. Rather
+we will focus on testing just the units of our application and
+their integration with each other.
 
+% Discuss checking the routing, ie that all routes and permissions
+% are enforced
+\subsection{Routing}
+
+As described earlier, Capital Games contains models for
+users, managers, administrators, trades, etc. Intrinsic to the Rails web framework
+we employ, most of these models are represented internally to the 
+controller as ``resources''. \cite{guides:routing} At any
+point in time, any user (even a non-user!) could attempt to gain
+access to a resource to which they are not privileged, such as an
+administrator panel. Routing unit tests will confirm that only
+authorized users will be able to access restricted pages. As an
+extension of this premise, Routing unit tests will also confirm
+that pages with low privileges are accessible to all users and
+front-facing pages can be seen even without being logged in.
+
+% Discuss that Rails does autmoatic validation but we have to test
+% this anyway since it's so important
+\subsection{Database Models}
+
+Because of the data-centric design of Capital Games, protecting the
+integrity of the database entries is of the utmost importance. The
+Ruby on Rails framework has safeguards and validation for this purpose,
+but we still need to thoroughly unit test each of the models to ensure
+that only permissible combinations of attributes are able to be entered,
+and that proper error handling occurs to resolve attempts at improper
+attribute definition.
+
+\subsection{Queueing System}
+
+\subsection{Finance Adaptor}
 
 % Describe the test coverage
 \section{Test Coverage}
