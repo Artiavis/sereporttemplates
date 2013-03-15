@@ -80,20 +80,70 @@ front-facing pages can be seen even without being logged in.
 % this anyway since it's so important
 \subsection{Database Models}
 
-Because of the data-centric design of Capital Games, protecting the
-integrity of the database entries is of the utmost importance. The
-Ruby on Rails framework has safeguards and validation for this purpose,
-but we still need to thoroughly unit test each of the models to ensure
-that only permissible combinations of attributes are able to be entered,
-and that proper error handling occurs to resolve attempts at improper
-attribute definition.
+Because of the data-centric design of Capital Games, protecting 
+the integrity of the database entries is of the utmost importance. 
+The Ruby on Rails framework has safeguards and validation for this 
+purpose, but we still need to thoroughly unit test each of the 
+models to ensure that only permissible combinations of attributes 
+are able to be entered, and that proper error handling occurs to 
+resolve attempts at improper attribute definition.
 
 \subsection{Queueing System}
 
-\subsection{Finance Adaptor}
+Capital Games heavily relies upon the queueing system to act as a 
+computational highway for all asynchronous tasks.  Due to the 
+nature of this system we must prepare for race conditions; the 
+different ways our data can be effected based upon the order of 
+executing processes that are acting upon the queue. We will need 
+to prepare a set of tests to express how the queue performs when 
+open orders are altered by other processes during different phases 
+of the queueing system. Based on our test results it might be 
+necessary to implement data locking.
+
+\subsection{Finance Adapter}
+
+Whenever using external resources it is vital to understand the 
+different ways in which they communicate not just when functioning 
+as expected, but also when failing to perform properly.  Since we 
+do not have the ability to shut down the external Financial 
+Adapter's Servers we can not run tests that give us feedback on 
+what functionality to expect on failure.  This leaves us without 
+the ability to test the Financial Adapter and instead pro-actively 
+safeguard against failure. Due to this we must build a wrapper that 
+anticipates all perceivable failures coming from the Financial Adapter.
 
 % Describe the test coverage
 \section{Test Coverage}
 
+In order to attain full functionality of Capital Games without bugs, 
+we must be sure that none of its parts have errors themselves.  Due 
+to many dependencies such as other running processes, system states, 
+and transitions, the same test will need to be preformed for each 
+possible configuration to make sure that each part works in every 
+possible scenario that it can be ran. This will require extending 
+certain tests to run at the same time as background processes, and 
+having parts called from all possible initiating parts. When working 
+with integrated parts it is not simply enough to assume that parts 
+will work once integrated just because they work independently. By 
+extensively testing each possible run case we ensure that there are 
+no points of failure once the system is launched.
+
 % Describe integration testing strategy
 \section{Integration Testing}
+
+In order to achieve the most thorough testing, Capital Games will be 
+tested using the bottom-up strategy. Each part of Capital Games that 
+we wrote will be extensively tested individually first. However 
+simply testing each part individually is not enough due to race 
+conditions and other integration issues that may exist in the 
+systems described above. Because of this, parts must be tested after 
+integration as well.  Knowing that functionality is state specific 
+and transition specific for any state machine, each test must also be 
+ran in all possible states. In addition to all previously listed 
+conditions, tests need to be preformed at different times to make sure 
+that functionality during backend asynchronous tasks do not have any 
+bugs. We have chosen the bottom-up testing strategy based on the 
+principle that bugs at the bottom level will dictate bugs at the 
+top level, while bugs at the top level may very well be independent 
+of bottom level performance. By carefully analyzing every part to part 
+integration we can work our way up to a flawless design.
