@@ -1,10 +1,18 @@
 \chapter{User Interface Design and Implementation}
 
 \section{Updated pages}
-This section will review the newest changes brought forth in the design.
+A few changes were brought in addition to our original designs.
+\subsection{Finalized Header}
+\subsection{Finalized Buy Page}
+\subsection{Initial Front Page}
+
 
 \section{Efficiency of the views}
-This section will find commonalities in the views and find ways to make it more effiecient, therefore making a faster loading time.
+Our website has to be effiecient but also not be a terrible pain to the programmers. 
+\subsection{Separation of the header and content}
+Ruby on Rails provides a feature that facilitates the creation of pages by having one page that is always loaded and somewhere in the middle it is redirected to the actual content. This means, for us, that we can create the content for each page and then rather than have to make the header each time, we can create that once and then link the content in the header page. On each page load, the header will be loaded and then the code will have a link which will then go find the correct file that contains the content code. Two reasons why this method is great are the ease to the programmer and the fact that the data will be stored in cache because we are loading the same exact file on the second page, therefore making loading much more efficient.
+\subsection{Avoiding long loading times}
+There are several ways we can reduce the amount of time the end user is going to have to wait for the page to load. One easy thing to do is that any pictures that we include should be scaled down to whatever is the maximum size it will be at. Having a large image and downscaling it is a waste of resources. Also on that topic, whenever a user uploads a picture, we will scale those down to a 100x100 icon. Another way we can avoid long loading times is to rely less on images and create pages with all code unless absolutely necessary. This is just good programming practice because loading images when you can create something through code is a waste of bandwidth and loading time. 
+\subsection{Cross compatibility}
+We decided to use Bootstrap elements to create our site, which comes with many features that help the programmer by predefining some views that are good-looking and cross compatible with all modern browsers and some older browsers that are still in use. In the case that we make some more features to the site that require non-Bootstrap elements, we can use the tool ``Modernizr'', which detects any features we are using that will not be supported in older browsers and correct them so that they work there, too. It is an invaluable tool that will keep our pages current and universal.
 
-\section{Controller and view communication}
-An optional section that will talk about how we will implement rails to send and recieve data from the browser and make use of it in creating views.
