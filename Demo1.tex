@@ -1,0 +1,49 @@
+% Report 2 Template
+% Team 2
+% All rights reserved
+
+\documentclass[11pt,letterpaper,oneside]{memoir}
+\usepackage{mystyle}
+\usepackage{float}
+%\usepackage{hyperref}
+
+% Include Title page
+\include{./tex/demo1title}
+
+\begin{document}
+%\maketitle % don't use this, will break the Author section
+\titleGM    % use this instead, defined to avoid problem
+%\pagebreak  % flush the next page
+\tableofcontents % create TOC
+
+% Include Table of Contributions
+\include{./tex/demo1contributions}
+
+% Chapter 1: Program Code Writing
+\include{./tex/demo1programming}
+
+% Chapter 2: Unit and Integration Testing
+\include{./tex/demo1testing}
+
+% Chapter 3: Webpage Design
+\include{./tex/demo1design}
+
+% Chapter 4: Debugging and/or Testing Algorithms
+\include{./tex/demo1debugging}
+
+% Chapter 5: Program Documentation
+\include{./tex/demo1documentation}
+
+% Chapter 6: Database Design and Maintenance
+\include{./tex/demo1db}
+
+% Chapter 7: Data Collection
+\include{./tex/demo1datacollection}
+
+% Chapter 8: Brochure and Slide Preparation
+\include{./tex/demo1prep}
+
+% Chapter 9: Project Management
+\include{./tex/demo1management}
+
+\end{document}
