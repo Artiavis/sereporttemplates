@@ -1,1 +1,7 @@
 \chapter{Project Program Code Writing}
+
+Most programming was shared between all members of the group. This was coordinated during group sessions held during the week of 22-26 March 2013. Specific areas of focus that particular members were involved in included the Financial API (yfinadaptor.rb) reworked mostly by Val Red and integrated into the Rails' application code by Nick Palumbo. Most of the controllers, routing, and chart generation were shared between Nick Palumbo and Jeff Rabinowitz. Dario Rethage headed orders development with Eric Cuiffo.
+
+{\bfseries Yahoo! Finance API (lib/assets/yfinadaptor.rb)} 
+
+While Val A. Red did much of the development on the Yahoo! Finance API, he mainly worked with an open-source ruby iteration that received stock quotes from Yahoo! Finance as a hash and returned strings containing the respective data. Much of the work that had to be done for the purposes of Capital Games was the rewriting of the code to repurpose the string back into a hash that could be invoked by our rails application. In addition, values had to be returned in the hash converted to cents and returned as an integer to be compatible with our monetary value parser. Percentages and ratios, however, were left as float values. Essentially, all financial data drawn by Capital Games was due to this code being called upon by other parts of the rails application.
