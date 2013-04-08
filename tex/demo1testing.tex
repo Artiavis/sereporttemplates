@@ -1,1 +1,30 @@
 \chapter{Unit \& Integration Testing}
+
+Testing is a critical part of software engineering -- just as important,
+if not more so, than the actual programming. Without tests, how can one
+know that anything works as intended?
+
+There are two types of testing we intend to perform on our project: unit
+and integration testing. Both live within the ``spec'' folder of our
+directory.
+
+\section{Unit Testing}
+
+Because we programmed our application using Ruby, we programmed
+our unit tests using the RSpec programming suite. RSpec provides
+a natural and domain-specific language for testing individual suites
+of functionality, both within generic Ruby, and especially within
+Ruby on Rails web frameworks such as ours. Our tests check the 
+responsiveness of both individual attributes of different modules,
+and even that they behave in controlled manners. 
+
+\section{Integration Testing}
+
+Integration testing is always more difficult than unit testing, because
+of the need to test as many interactions as possible between units. 
+To simplify this, we will leverage the Capybara testing suite, which
+utilizes the Selenium Web Driver to simulate end-user interactions
+and test the expected output against the actual results of the
+interactions. Due to time constraints, we were unable to author
+integration tests for the application, which is something we intend
+to remediate promptly.
