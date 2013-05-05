@@ -1,12 +1,17 @@
 \chapter{History of Work, Current Status, \& Future Work}
 
+%NOTE HERE! Contributions are now at the END of this section. Will emulate previous format as much 
+%			as possible. Please address any questions, comments, concerns to me! ~ Val
+
 \section{History of Work}
 
-Throughout the semester we have completed several of our planned milestones in a punctual, thorough, and consistent manner.
+Throughout the semester we completed several of our planned milestones in a punctual,
+ thorough, and consistent manner.
 
-Our first planned milestone, completing the Report 1 Part 1 prior to 12 February 2013. 
-We continued to meet our report deadlines for Report 1 Part 2 and the full, 
-compiled Report 1 by 18 February 2013 and 22 February 2013, respectively. 
+Our first planned milestone, completing the Report 1 Part 1 prior to 12 February 2013, 
+was met on time. We continued to meet our report deadlines 
+for Report 1 Part 2 and the full, compiled Report 1 by 
+18 February 2013 and 22 February 2013, respectively. 
 For the second report, we successfully met our deadlines for Report 2 Part 1 
 (consisting of Sequence Diagrams, timing and communication diagrams) 
 and Report 2 Part 2 (consisting of Class Diagrams, Interface, Architecture 
@@ -92,10 +97,69 @@ to maximize the efficiency of our application.
 The final stretch for a release-build \textit{Capital Games} would be an immersive tutorial 
 system activating upon user registration. This would have extensively took advantage of AJAX 
 and our Rails framework but also is the most complex type of functionality to deploy on a live 
-version of \textit{Capital Games}, hence it would have required careful, slow, and surgical-level 
-development. We also would like to perfect our asynchronous processing system for orders so that 
-the stop and short options would work as true-to-life as possible. Finally, to maximize user 
-retention, another future work goal would be to implement social media and e-mail notification 
-options so users can be reminded to check and update their portfolios and leagues on a regular 
-basis. Our Rails framework for \textit{Capital Games} was deployed so well, however, that it's 
+version of \textit{Capital Games}, hence it would have required careful, slow, and 
+surgical-level development. This was one of our major post-demonstration goals, but the 
+level of sophistication for a fully-functional live tutorial upon user registration was 
+highly impractical for the remaining time we had.
+
+We also would like to perfect our asynchronous processing system for orders so that 
+the stop and short options would work as true-to-life as possible. This was also one of our 
+major post-demo goals, and while this is one of the major portions of our final demo updates, 
+there are many more efficient practices in the field of asynchronous processing systems that 
+would be able to expand our \textit{Capital Games} long after we complete our final 
+demonstration build. 
+
+While we intended to implement a full Reporting and Disciplinary functionality within a Site 
+Administration suite, development on this fell in favor of the core functionality and orders, 
+which required a lot more dedicated manpower and hours than anticipated with the problems of 
+asynchronous processing as well as communicating with the Yahoo! Finance API and the 
+Highcharts implementation.   
+
+Finally, to maximize user retention, another future work goal would have been to implement
+ social media and e-mail notification options so users can be reminded to check and update their portfolios and leagues on a regular basis. A mailer system was intended, however, 
+ development on that particular item fell in favor of on-site notification and chat options, 
+ which were fully implemented by the Alpha into final demo release.  
+
+Our Rails framework for \textit{Capital Games} was deployed so well, however, that it's 
 expandability lends itself to a swift transition to these Future Work goals! 
+
+\newpage
+
+\section{Project Management}
+{
+\begin{figure}
+\begin{centering} % Aligns center 
+\renewcommand\arraystretch{2} % Causes rows to be spaced slightly more
+\begin{tabular}{cc|c|c|c|c|c|c|} % Creates a table with centered
+                                 % columns "c", separated by bars "|"
+\cline{3-8} % draw a horizontal line across columsn 3-8
+& & \multicolumn{6}{ c| }{Names} \\ \cline{1-8}
+\multicolumn{1}{|c|}{Category} & \multicolumn{1}{c|}{Points} & 
+Jeff A & Eric C & Nick P & Jeff R & Val R & Dario R \\ \cline{1-8}
+\multicolumn{1}{|c|}{Customer Statement of Requirements} & \multicolumn{1}{c|}{6 Points} & 
+20\% & 0\% & 0\% & 80\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Glossary of Terms} & \multicolumn{1}{c|}{4 Points} & 
+50\% & 0\% & 0\% & 50\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{System Requirements} & \multicolumn{1}{c|}{6 Points} & 
+0\% & 33\% & 0\% & 0\% & 33\% & 33\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Functional Requirements Specification} & \multicolumn{1}{c|}{30 Points} & 
+30\% & 10\% & 35\% & 0\% & 5\% & 20\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Effort Estimation} & \multicolumn{1}{c|}{4 Points} & 
+0\% & 25\% & 0\% & 75\% & 0\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Domain Analysis} & \multicolumn{1}{c|}{25 Points} & 
+25\% & 25\% & 10\% & 20\% & 20\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Interaction Diagrams} & \multicolumn{1}{c|}{30 Points} & 
+10\% & 15\% & 15\% & 20\% & 10\% & 30\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{System Architecture and System Design} & \multicolumn{1}{c|}{15 Points} & 
+16.67\% & 16.67\% & 16.67\% & 16.67\% & 16.67\% & 16.67\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Data Structures} & \multicolumn{1}{c|}{25 Points} & 
+0\% & 25\% & 0\% & 0\% & 75\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{History of Work} & \multicolumn{1}{c|}{5 Points} & 
+0\% & 0\% & 5\% & 5\% & 90\% & 0\% \\ \cline{1-8}
+\multicolumn{1}{|c|}{Project Management} & \multicolumn{1}{c|}{13 Points} & 
+3.85\% & 26.92\% & 30.77\% & 0\% & 19.23\% & 19.23\% \\ \cline{1-8}
+
+\end{tabular}
+\end{centering}
+\end{figure}
+}
