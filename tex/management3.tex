@@ -1,1 +1,101 @@
 \chapter{History of Work, Current Status, \& Future Work}
+
+\section{History of Work}
+
+Throughout the semester we have completed several of our planned milestones in a punctual, thorough, and consistent manner.
+
+Our first planned milestone, completing the Report 1 Part 1 prior to 12 February 2013. 
+We continued to meet our report deadlines for Report 1 Part 2 and the full, 
+compiled Report 1 by 18 February 2013 and 22 February 2013, respectively. 
+For the second report, we successfully met our deadlines for Report 2 Part 1 
+(consisting of Sequence Diagrams, timing and communication diagrams) 
+and Report 2 Part 2 (consisting of Class Diagrams, Interface, Architecture 
+design, data structures, UI, tests and implementations) 
+on 1 March 2013 and 8 March 2013, respectively.
+
+As we met our initial Report deadlines, we also simultaneously 
+began work on the initial build of \textit{Capital Games}. We began with 
+deploying our server environment, which took place between 22 February 
+and 2 March 2013. While we were initially weighing our options between 
+dedicated virtual private server (VPS) and Heroku, we determined that 
+a dedicated virtual private server would better suit our needs and we 
+successfully deployed it by 2 March 2013. In this time, we also finalized 
+our plan for mockup-based views and the CSS/HTML plan. 
+
+Populating the server with Ruby on Rails and Gem plugins, however, 
+took a little longer than anticipated. This is because we needed to 
+confirm and test for full compatibility between our server's Ubuntu 
+operating system, Debian 6 ``Squeeze'' before deploying Ruby on 
+Rails and begin programming on it. This extended beyond our initial 
+range of 1 March 2013 to 8 March 2013 and was completed by 13 March 2013.
+
+We completed our full Report 2 deadline by 17 March 2013. After this point 
+we shifted gears and committed to having \textit{Capital Games} Alpha build 
+prepared for our demo. In the weeks between 17 March 2013 and 2 April 2013 
+we met several of our objectives. The Yahoo! Finance API was implemented, 
+the MySQL database structure was deployed and populated. Our routing plan 
+was completed, our views (webpage layouts via the ``Dashboard Admin'' theme) 
+were implemented, and we successfully got users, leagues, and portfolios 
+at a working state in which data could be utilized between them in our 
+routing structure. We even had our graphs via Highcharts and responsive
+UI at a working state! Thus we met our 2 April 2013 deadline and were able 
+to present Demo 1 with a stable, presentable, and functional Alpha build. 
+
+Our biggest strength was establishing manageable goals that still built on 
+the strengths and failures of our predecessors. We chose a superior UI but 
+were not overly-ambitious with functionality, otherwise; 
+this enabled us to meet our goals in a punctual manner. We almost fully 
+implemented our orders system, in addition, so we were actually ahead of 
+our initial goals for our \textit{Capital Games} Alpha build!
+
+\section{Current Status}
+
+Currently, \textit{Capital Games} is a functioning Rails application. We have an 
+online version of our latest builds on the domain http://capitalgam.es/ based on 
+our Virtual Private server. It features working orders, leagues, portfolios, and 
+user systems with a fully-functional and responsive UI that can be used in tablets 
+and phones in addition to personal computer to be user friendly for anyone on a 
+smart device. Most core functionalities have been deployed and the current status is 
+debugging and optimizing our website to address orders in an asynchronous fashion 
+to maximize the efficiency of our application. 
+
+\section{Key Accomplishments}
+
+\textit{Capital Games} unlocked the following achievements:
+
+\begin{itemize}
+	\item{A Ruby on Rails-based Framework for core Web Application functionality}
+	\item{A responsive UI usable on smart devices based on the ``Dashboard Admin'' theme.}
+	\item{A minimalistic and easy-to-use system for users, portfolios, and leagues}
+	\item{A research page that draws news feeds pertinent to investment options}
+	\item{An implementation of highcharts that presentably showed candlestick and line-graph data }
+\end{itemize}
+
+\textit{Capital Games} also deployed the following use cases:
+
+\begin{itemize}
+	\item{Buy Stock}
+	\item{Sell Stock}
+	\item{Query Stock}
+	\item{View History}
+	\item{View Portfolio}
+	\item{Register}
+	\item{Create League}
+	\item{Submit Comment}
+	\item{Join League}
+	\item{Change League Settings}
+	\item{Browse Companies}
+\end{itemize}
+
+\section{Future Work}
+
+The final stretch for a release-build \textit{Capital Games} would be an immersive tutorial 
+system activating upon user registration. This would have extensively took advantage of AJAX 
+and our Rails framework but also is the most complex type of functionality to deploy on a live 
+version of \textit{Capital Games}, hence it would have required careful, slow, and surgical-level 
+development. We also would like to perfect our asynchronous processing system for orders so that 
+the stop and short options would work as true-to-life as possible. Finally, to maximize user 
+retention, another future work goal would be to implement social media and e-mail notification 
+options so users can be reminded to check and update their portfolios and leagues on a regular 
+basis. Our Rails framework for \textit{Capital Games} was deployed so well, however, that it's 
+expandability lends itself to a swift transition to these Future Work goals! 
