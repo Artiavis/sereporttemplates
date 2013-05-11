@@ -29,7 +29,7 @@ data while also allowing it to be manipulated more precisely. Per the convention
 of MVC-style application style architecture 
 % insert reference here for later chapter
 (upon which we base our application, described in more detail later), these 
-are known as the Models.
+are known as the Models. The database is explored in more detail in the Data Structures section.
 
 \subsection{Finance API Adaptor}
 The data for the application comes from a third party source, Yahoo! Inc. Yahoo!
@@ -280,13 +280,6 @@ list of which is tabulated in Table~\ref{financeparams}. When
 data is retrieved by the adaptor, it is tabulated with some of the
 parameters shown in the table. 
 
-
-\begin{figure}
-\label{domainModel}
-\centering
-\includegraphics[width=6.5in]{./img/domainModel.pdf}
-\caption{This diagram indicates the relationships between the data present in the database Models, as shown in a previous diagram. These data are self-validating and can be queried and sorted by the other parts of the system.}
-\end{figure}
 
 \begin{figure}
 \label{queuestruct}

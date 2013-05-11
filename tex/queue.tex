@@ -11,12 +11,6 @@ The asynchronous processing subsystem features three primary components. First, 
 \subsection{Structural Model}
 The structural model below depicts the overall structure of this subsystem. Namely, the Resque Library and two packages or modules which each are responsible for one kind of task. On the left, the orders package displays a relevant subset of all classes that pertain to placing and processing orders. As previously mentioned, the Order object itself implements the perform method. Therefore, it knows how to process its data when it get gets placed in worker 1's queue. While the OrderHandler class isn't directly involved in the asynchronous processing of orders, it is still relevant in this scope and therefore included in the diagram. It is ultimately the class responsible for placing the order object on the queue when an order is placed. Similarly, the mailer package is depicted with a subset of classes which aggregate data about user performance and send out periodic summarizations of performance metrics to all users on the site. Worker 2 is dedicated to processing email related tasks daily. In this case, the architecture is slightly different as the worker doesn't directly call perform on each ActionMailer object, but instead on a NewsletterController which populates the worker's queue with customized ActionMailer Objects.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=5.5in]{./Diagrams/ComponentModels/BackgroundProcessStructuralModel.pdf}
-\caption{The structural model of the asynchronous processing subsystem.}
-\end{figure}
-
 \newpage
 
 \subsection{Interaction Diagrams}

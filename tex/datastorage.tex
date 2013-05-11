@@ -21,10 +21,16 @@ allow complex queries against tabulated data \cite{wiki:rdb}.
 
 \begin{figure}[ht]
 \centering
+\includegraphics[width=6in]{./img/domainModelold.pdf}
+\caption{The old design for the database for Capital Games.)}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
 \includegraphics[width=6in]{./img/domainModel.pdf}
 \caption{The format of the relational database
 schema implemented by Capital Games for its core features.
-(Not comprehensive.)}
+Notice that the "Stocks" table has been removed and a "Performances" table has been added. Originally, the plan had been to store the historical performance of stocks as a way of caching data to later perform quick calculations of a portfolio's historical worth for the purpose of graphing and displaying it to users. However, we decided instead to cache the daily performance of portfolios directly in the Performance table as it was both more efficient and simplified calculations.}
 \end{figure}
 
 For example, consider the figure shown previously, repeated here.
