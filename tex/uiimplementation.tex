@@ -1,38 +1,99 @@
 \chapter{User Interface Design and Implementation}
-
-\section{Updated pages}
-A few changes were brought in addition to our original designs, which are highlighted in this section.
-\subsection{Finalized Header}
-To bring a consistant theme to the whole website, a header is there to help. We had a header in the last version of the report but we needed navigable tabs to get around the website that will appear on every page, as well as a search bar for quick access to something more specific. Referring to the figure below, one can see that the new header removed the need to have a sidebar and therefore saves space and makes the end result more pleasing to the user. 
+\section{Finilized Product}
+Here, we reflect on the changes that were ultimitly made to simplify our design.
+\subsection{Pages for a visitor}
+When a user first comes to see our website, they will be greeted with this page:
 \begin{figure}[H]
 \centering
-\includegraphics[width=5.5in]{./mockups/JPEG/headernew.jpg}
-\caption{The header located on the top of every page.}
+\includegraphics[width=5.5in]{./img/finalDesign/homepage.png}
+\caption{Homepage of the website}
 \end{figure}
-
-\subsection{Finalized League page}
-The last league page was a bit cluttered with the top three users section, and therefore a change was needed. This change brings about a cleaner representation of the top three users in a league and also an easier design to implement in the end. Bootstrap comes equipped with an accordian widget which has a main section that highlights content and a few buttons that change the content that is being shown, all while providing a clean animation on top of that. We will take advantage of that widget because it looks great and is easy to make.
+If they click on the sign-in option, they will be taken to this page:
 \begin{figure}[H]
 \centering
-\includegraphics[width=5.5in]{./mockups/JPEG/Leaguesfourth.jpg}
-\caption{Changes to the leagues page.}
+\includegraphics[width=5.5in]{./img/finalDesign/login.png}
+\caption{The login page}
 \end{figure}
-
-\subsection{Initial Front Page}
-The initial designs also lacked a page that a user is brought to when they first visit out website. A user cannot simply be taken to a login/sign up page without being told anything about the website or being greeted. This new page works as the page a visitor who is not logged in is brought to so they can choose the necessary action. For a user that already has an account, they can choose to log in via the leftmost button or the link up top. For a user that wants to create an account, they can choose to do so by clicking the middle button that will redirect to a simple form. For a user that wants to learn more about us, they can press the rightmost button which will bring them to the interactive tutorials we be implementing. 
+Alternatively, if they click on the sign-up page, they wil be greeted with this page:
 \begin{figure}[H]
 \centering
-\includegraphics[width=5.5in]{./mockups/JPEG/initialpage.jpg}
-\caption{The page a user who is not logged in sees when they first visit our website.}
+\includegraphics[width=5.5in]{./img/finalDesign/signup.png}
+\caption{The sign-up page}
 \end{figure}
-
-
-\section{Efficiency of the views}
-Our website has to be efficient but also not be a terrible pain to the programmers. There are a few ways that this can be dealt with on the view-side of programming.
-\subsection{Separation of the header and content}
-Ruby on Rails provides a feature that facilitates the creation of pages by having one page that is always loaded and somewhere in the middle it is redirected to the actual content. This means, for us, that we can create the content for each page and then rather than have to make the header each time, we can create that once and then link the content in the header page. On each page load, the header will be loaded and then the code will have a link which will then go find the correct file that contains the content code. Two reasons why this method is great are the ease to the programmer and the fact that the data will be stored in cache because we are loading the same exact file on the second page, therefore making loading much more efficient.
-\subsection{Avoiding long loading times}
-There are several ways we can reduce the amount of time the end user is going to have to wait for the page to load. One easy thing to do is that any pictures that we include should be scaled down to whatever is the maximum size it will be at. Having a large image and downscaling it is a waste of resources. Also on that topic, whenever a user uploads a picture, we will scale those down to a 100x100 icon. Another way we can avoid long loading times is to rely less on images and create pages with all code unless absolutely necessary. This is just good programming practice because loading images when you can create something through code is a waste of bandwidth and loading time. 
-\subsection{Cross compatibility}
-We decided to use Bootstrap elements to create our site, which comes with many features that help the programmer by predefining some views that are good-looking and cross compatible with all modern browsers and some older browsers that are still in use. In the case that we make some more features to the site that require non-Bootstrap elements, we can use the tool ``Modernizr'', which detects any features we are using that will not be supported in older browsers and correct them so that they work there, too.\cite{wiki:modern} It is an invaluable tool that will keep our pages current and universal.
-
+Lastly, if they click on the "Take a Tour" button, they will be taken to our "Learn" section of the website. It's a simple text guided tour through our website that lets the user learn a little bit about the way our site works before (or after) signing up.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/tutorial.png}
+\caption{The first tutorial}
+\end{figure}
+\subsection{The Dashboard}
+Once a user is logged in, they will be greeted with their dashboard. This is a customized page that thells them information about some events that have been going on in the site as well as the progress in all of thier leagues.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/dashboard.png}
+\caption{The Dashboard}
+\end{figure}
+\subsection{Leagues}
+The final design for leagues was simplified the most. If you want to find a league, you visit the leagues page. There you can search, filter through, or create a league. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/leagues.png}
+\caption{The leagues page}
+\end{figure}
+If you want to create a league, you will be greeted with a very simple page for making a league.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/createleague.png}
+\caption{The create a league page}
+\end{figure}
+Once you have a league or are in it, you can check out how users are doing by checking out the table with users sorted by their rank or see comments that other users have posted.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/league.png}
+\caption{A league page}
+\end{figure}
+If you're an admin of the page, you can check out the league settings, where you can change the name, description and league picture in the "Basic Settings" tab, and you can delete the league in the "Delete League" tab. The others were not implemented yet.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/leaguesettings.png}
+\caption{The league settings page}
+\end{figure}
+If you want to check out a user's performance in the league, you just have to click on their name on the table in the league page. Here, you can see their rank, worth, and recent orders they have made.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/port.png}
+\caption{The portfolio page}
+\end{figure}
+\subsection{Users}
+With our specialized social system, it's easy to keep in touch with other users. One way you can do that is by dropping a comment on their wall. Their wall is a place that displays their profile picture, their leagues and their comments. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/user.png}
+\caption{The user page}
+\end{figure}
+If one wants to change their settings, they can look up at the top bar in the header and click on "Account" and then "Settings". This will allow you to change your name and your profile picture.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/usersettings.png}
+\caption{The user settings page}
+\end{figure}
+\subsection{Companies}
+The last part of the website that we will highlight is the companies pages. You can go to the "Companies" page of the website and you will be greeted with recent news about the market and the ability to search for a company by symbol. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/companies.png}
+\caption{The companies page}
+\end{figure}
+Once you search for a company, you will find a lot of relevant information about that company to help you in your purchase of stocks. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/company.png}
+\caption{A company page}
+\end{figure}
+If you want to buy/sell a stock, you can press on the "Trade" button, which bring up this dialogue:
+\begin{figure}[H]
+\centering
+\includegraphics[width=5.5in]{./img/finalDesign/buy.png}
+\caption{Buying or selling stocks}
+\end{figure}
+There are a lot of options to choose from there and they all work as the usual market does.
