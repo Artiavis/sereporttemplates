@@ -150,3 +150,16 @@ For example, sectors and Quotes as mapped to the Financial Adaptor exist in thei
 original form inside Yahoo! Finance's respective APIs, hence they map to Yahoo! Finance. Also, Current Companies is also a database table queried by
 the Financial Adaptor and updated via EODData, hence it maps to both 
 the Financial Adaptor and EODData.
+
+\subsection{Object Constraint Language}
+In order to separate ideas in OCL, we will split it up descriptions by each class in the class diagram.
+\subsubsection{Finanace Adaptor Class}
+In this class, we have a few constraints that deal with this class being kind of central to all of the other classes that make up our financial adaptor. The function to buy or sell stocks are the same in their constraints. You must have a symbol name which is not equivalent to NULL and is the symbol of a company that exists. The amount must be a positive integer and if you are buying you must have enough to spend on this. Lastly, the userID must be plugged in, so that must also not be NULL and it should hold the username of someone who exists. The function get\_company\_data must have a symbol passed in that exists and is not NULL. The function scan\_list must be called after the list already exists, or there will be an error. Lastly, the update\_companies function must have a return from EoDdata that is valid and not corrupted.
+\subsubsection{Current Companies}
+All three of the functions in this class have the same constraint, that the symbol passed in must exist. On top of that, the ``length'' variable must always be equal to the amount of symbols in the ``symbols'' variable.
+\subsubsection{Yahoo! Finanace Class}
+Fortunately for us, this is another simple addition for it is dealt with completely by Yahoo! Finance. Something that we do have to be careful of is making sure that if we are calling the get\_quotes or get\_hist\_quotes, we have to make sure that we are passing in a valid string. For example, if we passed in a NULL string, we would have an error returned.
+\subsubsection{EoDdata Class}
+This is the simplest class out of any of the ones we deal with, as there are no variables and only one function that returns a large list of stocks without us having to pass in anything. No constraints in this class.
+\subsubsection{Sector and Quote Class}
+The constraints on these classes will work as long as Yahoo! Finanace returned results that are valid. These results are checked in the Finance Adaptor Class, and if it did make it past that point, the data that is passed in is fine, and therefore there are no actual constraints on these classes.
