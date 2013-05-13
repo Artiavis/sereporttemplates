@@ -33,3 +33,17 @@ League Performance Retriever & LeaguePerformance & retreives a leagues performan
 \end{tabular}
 \caption{ Attribute Table.}
 \end{table}
+\subsection{Object Constraint Language}
+To separate topics in this section, we will talk about each grouping of classes one at a time. 
+\subsubsection{Order Package}
+The first section of the ``Order Package'' stub is a class that deals with handling orders. The constraints for this class are the usual -- the function will work as long as they are given a correct order. That means that it has to be from a league that is in the boundary of it's date, if the order is a buy it must be under the constraint of how much money the user has and if it is a sell they must already own that much stock.\\
+As of the actual order class, most of the variables in the class are but integers. The constraint on these integers is that all of them are positive, and league\_id and portfolio\_id must already exist. Also, once both variables are filled, placedDateTime must be before filledDateTime.
+\subsubsection{Resque}
+Resque is the simplest class in the asynchronous system as its only constraint is that it must have a valid order passed in.
+\subsubsection{Performance Summarization}
+The performance class has constraints on the variables startDate and endDate. These two variables only have the constraint that startDate must be earlier than endDate. It also has the constraint that the numTransactions variable must be a non-negative integer.
+The rest of the variables related to Performance Summarization are integers that must also be non-negative.
+\subsubsection{Mailer Package}
+The mailer package class is a simple class that will succeed as long as the orders constraints went well. All of the variables in UserSummaryMailer are simple to check if they are correct, they are all strings that should not be NULL or they are integers that should represent an ID so they must be non-negative.
+\subsubsection{Database Interface}
+Every function in this class can do a simple check to see if the object that was passed in exists. All of the functions deal with operations on an object so checking for existance is all they will need as constraints.
